@@ -6,7 +6,7 @@ import { buttonClass } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "ติดต่อและสั่งซื้อ",
-  description: "ช่องทางติดต่อและสั่งซื้อข้าวหอมสุรินทร์ผ่าน LINE",
+  description: "ข้อมูลติดต่อและรายละเอียดการเตรียมคำขอสั่งซื้อข้าวหอมสุรินทร์ ช่องทางร้านจะแสดงเมื่อได้รับการยืนยัน",
   alternates: { canonical: "/contact" },
 };
 
@@ -20,12 +20,8 @@ export default function ContactPage() {
         </div>
         <div>
           <h2 className="font-serif-th text-2xl text-forest">สั่งซื้ออย่างไร</h2>
-          <ol className="mt-4 list-decimal space-y-2 pl-5 text-ink/85">
-            <li>เลือกสินค้าและเพิ่มลงตะกร้า</li>
-            <li>ตรวจจำนวนในหน้าตะกร้า</li>
-            <li>กดสั่งซื้อผ่าน LINE ระบบคัดลอกข้อความสรุปให้</li>
-            <li>วางข้อความในแชต LINE ของร้านและส่ง</li>
-          </ol>
+          <p className="mt-4 text-ink/85">เลือกสินค้า กรอกรายละเอียด ตรวจและคัดลอกข้อความ จากนั้นเปิดช่องทางร้านและส่งด้วยตนเอง ร้านจะยืนยันคำขอภายหลัง</p>
+          <Link href="/order-process" className="mt-3 inline-block text-forest underline underline-offset-4">อ่านขั้นตอนสั่งซื้อทั้งหมด</Link>
           <Link href="/cart" className={buttonClass("forest", "mt-6")}>
             ไปที่ตะกร้า
           </Link>

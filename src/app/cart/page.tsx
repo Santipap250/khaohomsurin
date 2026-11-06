@@ -4,7 +4,8 @@ import { CartView } from "@/components/products/CartView";
 
 export const metadata: Metadata = {
   title: "ตะกร้าสินค้า",
-  description: "ตรวจรายการสินค้า แล้วส่งคำขอสั่งซื้อผ่าน LINE",
+  description: "ตรวจรายการและเตรียมข้อความคำขอสั่งซื้อ ข้อมูลจะไม่ถูกส่งไปยังร้านจนกว่าคุณจะส่งด้วยตนเอง",
+  alternates: { canonical: "/cart" },
   robots: { index: false },
 };
 

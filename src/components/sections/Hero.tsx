@@ -34,6 +34,7 @@ export function Hero() {
           alt="แพ็กข้าวที่ติดฉลากบุญยังข้าวหอมตามภาพสินค้าที่ให้มา"
           fill
           priority
+          fetchPriority="high"
           sizes="(min-width: 1024px) 60vw, 100vw"
           className="object-cover object-[50%_55%]"
         />
