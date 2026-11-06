@@ -1,0 +1,47 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Pending } from "@/components/ui/Pending";
+import { priceLabel } from "@/lib/format";
+import type { Product } from "@/types";
+import { AddToCart } from "./AddToCart";
+
+export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
+  const img = product.images[0];
+  const v = product.variants[0];
+  return (
+    <article className="group grid overflow-hidden rounded-3xl bg-white/70 ring-1 ring-earth/15 sm:grid-cols-2">
+      <Link href={`/products/${product.slug}`} className="relative block aspect-[4/5] overflow-hidden bg-ivory-deep" aria-label={`ดูรายละเอียด ${product.name}`}>
+        <Image
+          src={img.src}
+          alt={img.alt}
+          fill
+          priority={priority}
+          sizes="(min-width: 1024px) 28rem, (min-width: 640px) 45vw, 100vw"
+          className="object-cover transition duration-700 group-hover:scale-[1.03]"
+          style={{ objectPosition: img.position }}
+        />
+      </Link>
+      <div className="flex flex-col justify-center gap-4 p-6 sm:p-8">
+        <p className="text-sm text-earth">{product.category}</p>
+        <h3 className="font-serif-th text-2xl text-forest">
+          <Link href={`/products/${product.slug}`}>{product.name}</Link>
+        </h3>
+        <p className="text-ink/80">{product.summary}</p>
+        <dl className="text-sm">
+          <div className="flex flex-wrap items-center gap-2">
+            <dt className="text-earth">ขนาดบรรจุ</dt>
+            <dd>{v.weightLabel ?? <Pending>รอกำหนดขนาด</Pending>}</dd>
+          </div>
+          <div className="mt-1 flex flex-wrap items-center gap-2">
+            <dt className="text-earth">ราคา</dt>
+            <dd>{v.price === null ? <Pending>รอกำหนดราคา</Pending> : priceLabel(v.price)}</dd>
+          </div>
+        </dl>
+        <AddToCart product={product} />
+        <Link href={`/products/${product.slug}`} className="text-sm font-medium text-forest underline underline-offset-4">
+          ดูรายละเอียด
+        </Link>
+      </div>
+    </article>
+  );
+}
