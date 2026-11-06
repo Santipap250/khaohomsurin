@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import { useRef } from "react";
 import { ButtonLink } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 import { site } from "@/config/site";
 
 const grains = [
@@ -30,11 +31,10 @@ export function Hero() {
     <section ref={ref} className="relative isolate flex min-h-[calc(100svh-4rem)] flex-col overflow-hidden bg-forest-deep text-ivory lg:flex-row">
       <motion.div style={{ y }} className="relative h-[56svh] shrink-0 lg:absolute lg:inset-0 lg:left-[36%] lg:h-auto lg:[mask-image:linear-gradient(to_right,transparent,#000_38%)]">
         <Image
-          src="/images/products/boonyang-rice-pack.jpg"
-          alt="แพ็กข้าวที่ติดฉลากบุญยังข้าวหอมตามภาพสินค้าที่ให้มา"
+          src="/images/products/boonyang-rice-lifestyle.jpg"
+          alt="แพ็กข้าวบุญยังข้าวหอมวางบนพื้นหินท่ามกลางรวงข้าวและแสงอุ่นยามเย็น"
           fill
           priority
-          fetchPriority="high"
           sizes="(min-width: 1024px) 60vw, 100vw"
           className="object-cover object-[50%_55%]"
         />
@@ -55,6 +55,9 @@ export function Hero() {
 
       <div className="relative mx-auto -mt-16 flex w-full max-w-7xl items-end px-4 pb-20 sm:px-6 lg:mt-0 lg:items-center lg:pb-16 lg:pt-16">
         <motion.div variants={container} initial="hidden" animate="show" className="max-w-xl">
+          <motion.div variants={item} className="mb-5 hidden lg:block">
+            <Logo size={84} />
+          </motion.div>
           <motion.p variants={item} className="text-gold-soft">
             {site.name} · {site.nameEn}
           </motion.p>
@@ -65,7 +68,7 @@ export function Hero() {
             </span>
           </motion.h1>
           <motion.p variants={item} className="mt-5 max-w-md text-ivory/80">
-            The essence of Surin. The beauty of Thai rice. ข้าวสุรินทร์ใต้ฉลาก “{site.labelBrand}”
+            The essence of Surin. The beauty of Thai rice. ข้าวสุรินทร์ “{site.labelBrand}” โดย {site.groupName}
           </motion.p>
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/products">เลือกชมสินค้า</ButtonLink>

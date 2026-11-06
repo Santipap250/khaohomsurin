@@ -3,6 +3,8 @@ import Link from "next/link";
 import { AddToCart } from "@/components/products/AddToCart";
 import { ButtonLink } from "@/components/ui/Button";
 import { Pending } from "@/components/ui/Pending";
+import { LoopVideo } from "@/components/ui/LoopVideo";
+import { Logo } from "@/components/ui/Logo";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/config/site";
 import { faqs } from "@/data/faq";
@@ -18,23 +20,17 @@ export function Intro() {
     <section id="intro" className="bg-ivory py-20 lg:py-28">
       <div className={`${wrap} grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20`}>
         <Reveal>
-          <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-full ring-4 ring-gold/70 ring-offset-8 ring-offset-ivory">
-            <Image
-              src="/images/brand/label-crop.jpg"
-              alt="สติกเกอร์ฉลากจริง บุญยังข้าวหอม ข้าว สุรินทร์ ลายรวงข้าวสีทองและใบข้าวสีเขียว"
-              fill
-              sizes="(min-width: 768px) 28rem, 90vw"
-              className="object-cover"
-            />
+          <div className="mx-auto w-full max-w-md drop-shadow-[0_24px_40px_rgba(22,61,44,0.25)]">
+            <Logo size={448} className="h-auto w-full" />
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ฉลากเดียวกับที่ถึงมือคุณ</h2>
+          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ตราที่บอกที่มาของข้าว</h2>
           <p className="mt-5 max-w-xl text-lg text-ink/85">
-            “{site.name}” คือชื่อเว็บไซต์นี้ ส่วนบนบรรจุภัณฑ์ใช้ชื่อ “{site.labelBrand}” ฉลากกลมสีเขียวทองลายรวงข้าว ระบุแหล่งที่มาว่า “{site.labelDescriptor}”
+            “{site.name}” คือชื่อเว็บไซต์นี้ ส่วนบนโลโก้และบรรจุภัณฑ์ใช้ชื่อ “{site.labelBrand}” โดย {site.groupName} ระบุว่า “{site.labelDescriptor}”
           </p>
           <p className="mt-4 max-w-xl text-ink/80">
-            ภาพฉลากบนเว็บไซต์เป็นภาพถ่ายจริงที่เจ้าของแบรนด์ให้มา ไม่ได้วาดใหม่หรือดัดแปลง เพื่อให้เห็นหน้าตาของสินค้าตรงกับของจริง
+            โลโก้นี้เป็นไฟล์ที่เจ้าของแบรนด์ส่งมา เว็บไซต์ใช้อย่างที่เป็น ไม่แก้ไขตัวอักษรหรือลวดลาย
           </p>
         </Reveal>
       </div>
@@ -87,7 +83,7 @@ export function Featured() {
 
 const reasons = [
   { t: "เห็นเมล็ดข้าวก่อนสั่ง", d: "บรรจุในแพ็กใส ดูสีและเมล็ดข้าวได้จากภาพถ่ายจริงของสินค้า" },
-  { t: "ฉลากตรงกับของจริง", d: "ใช้ภาพสติกเกอร์ฉลากจริง ไม่วาดใหม่ ไม่แต่งเติมข้อความ" },
+  { t: "โลโก้ตรงกับของแบรนด์", d: "ใช้ไฟล์โลโก้จากเจ้าของแบรนด์ ไม่วาดใหม่ ไม่แต่งเติมข้อความ" },
   { t: "สั่งตรงกับร้านผ่าน LINE", d: "สรุปรายการให้พร้อมส่ง ร้านเป็นผู้ยืนยันราคา การจัดส่ง และการชำระเงิน" },
 ];
 
@@ -121,7 +117,7 @@ export function Origin() {
           <p className="text-earth">ที่มาของข้าว</p>
           <h2 className="font-serif-th mt-2 text-3xl text-forest sm:text-4xl">จากผืนดินสุรินทร์</h2>
           <p className="mt-5 max-w-lg text-lg text-ink/85">
-            ฉลากบนบรรจุภัณฑ์ระบุแหล่งที่มาว่า “ข้าว สุรินทร์” เรื่องราวของผู้ปลูก พื้นที่เพาะปลูก และฤดูกาลจะเพิ่มในหน้าเรื่องราวเมื่อเจ้าของแบรนด์ยืนยันข้อมูล
+            โลโก้ระบุว่า “พื้นเมืองสุรินทร์ ข้าวดอกมะขาม” เรื่องราวของผู้ปลูก พื้นที่เพาะปลูก และฤดูกาลจะเพิ่มในหน้าเรื่องราวเมื่อเจ้าของแบรนด์ยืนยันข้อมูล
           </p>
           <div className="mt-8">
             <ButtonLink href="/story" variant="forest">
@@ -130,15 +126,12 @@ export function Origin() {
           </div>
         </Reveal>
         <Reveal delay={0.1} className="relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] lg:ml-12">
-            <Image
-              src="/images/products/boonyang-rice-pack.jpg"
-              alt="แพ็กสินค้าบุญยังข้าวหอมตามภาพที่ให้มา โดยยังไม่ยืนยันชนิดข้าว"
-              fill
-              sizes="(min-width: 1024px) 36rem, 100vw"
-              className="object-cover"
-            />
-          </div>
+          <LoopVideo
+            src="/videos/rice-macro.mp4"
+            poster="/videos/rice-macro-poster.jpg"
+            label="วิดีโอภาพใกล้เมล็ดข้าวในถ้วยไม้ เคลื่อนกล้องช้า ๆ"
+            className="aspect-[4/5] rounded-[2rem] lg:ml-12"
+          />
         </Reveal>
       </div>
     </section>
@@ -180,13 +173,15 @@ export function QualityTeaser() {
 export function Showcase() {
   const items = [
     { src: "/images/products/boonyang-rice-pack.jpg", alt: "แพ็กข้าวบุญยังข้าวหอมบนโต๊ะไม้ในแสงธรรมชาติ", w: 768, h: 1376 },
-    { src: "/images/brand/label-crop.jpg", alt: "ภาพถ่ายฉลากจริงบุญยังข้าวหอม", w: 600, h: 600 },
+    { src: "/images/products/boonyang-rice-lifestyle.jpg", alt: "แพ็กข้าววางซ้อนกันข้างรวงข้าวและถ้วยเมล็ดข้าว", w: 688, h: 1223 },
+    { src: "/images/products/rice-grains-macro.jpg", alt: "เมล็ดข้าวในถ้วยไม้แบบใกล้", w: 768, h: 1376 },
+    { src: "/images/products/red-rice-slate.jpg", alt: "เมล็ดข้าวกองบนแผ่นหินชนวนมีรวงข้าววางรอบ", w: 768, h: 1376 },
   ];
   return (
     <section className="bg-ivory py-20 lg:py-28">
       <div className={wrap}>
         <Reveal>
-          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ภาพแพ็กสินค้าและฉลากที่ได้รับ</h2>
+          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ภาพจากแพ็กและเมล็ดข้าว</h2>
         </Reveal>
       </div>
       <ul className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-4 lg:overflow-visible">
@@ -204,16 +199,24 @@ export function Showcase() {
 
 export function Cooking() {
   return (
-    <section className="bg-ivory-deep py-20 lg:py-24">
-      <div className={`${wrap} max-w-4xl`}>
+    <section className="bg-forest-deep py-20 text-ivory lg:py-28">
+      <div className={`${wrap} grid items-center gap-12 lg:grid-cols-[1fr_0.8fr] lg:gap-20`}>
         <Reveal>
-          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">จากแพ็กสู่โต๊ะอาหาร</h2>
-          <p className="mt-5 text-lg text-ink/85">
-            ข้าวหนึ่งหม้อคือมื้อธรรมดาที่ทุกบ้านมี คำแนะนำการซาวข้าว อัตราส่วนน้ำ และเวลาหุงที่เหมาะกับข้าวชนิดนี้จะเพิ่มเมื่อเจ้าของแบรนด์ยืนยันชนิดข้าวแล้ว
+          <h2 className="font-serif-th text-3xl sm:text-4xl">จากแพ็กสู่โต๊ะอาหาร</h2>
+          <p className="mt-5 max-w-xl text-lg text-ivory/85">
+            ข้าวหนึ่งหม้อคือมื้อธรรมดาที่ทุกบ้านมี คำแนะนำการซาวข้าว อัตราส่วนน้ำ และเวลาหุงที่เหมาะกับข้าวชนิดนี้จะเพิ่มเมื่อเจ้าของแบรนด์ยืนยันข้อมูลแล้ว
           </p>
           <p className="mt-4">
-            <Pending>วิธีหุงที่แนะนำ: รอข้อมูล</Pending>
+            <Pending dark>วิธีหุงที่แนะนำ: รอข้อมูล</Pending>
           </p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <LoopVideo
+            src="/videos/steaming-rice.mp4"
+            poster="/videos/steaming-rice-poster.jpg"
+            label="วิดีโอข้าวสวยร้อน ๆ ในชามเซรามิก มีไอน้ำลอยขึ้น"
+            className="mx-auto aspect-[9/14] w-full max-w-sm rounded-[2rem] ring-1 ring-gold/40"
+          />
         </Reveal>
       </div>
     </section>
@@ -278,5 +281,22 @@ export function FinalCta() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+export function FactStrip() {
+  const [area, variety] = site.labelDescriptor.split(" · ");
+  const facts = [area, variety, site.groupName, "แพ็กใส เห็นเมล็ดข้าว"];
+  return (
+    <div className="border-y border-gold/30 bg-ivory-deep">
+      <ul className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-2 px-4 py-4 text-sm text-forest sm:px-6">
+        {facts.map((f) => (
+          <li key={f} className="flex items-center gap-3">
+            <span aria-hidden className="h-1.5 w-1.5 rotate-45 bg-gold" />
+            {f}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
