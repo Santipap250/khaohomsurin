@@ -47,7 +47,7 @@ export function ContactRows({ dark = false }: Props) {
         ) : (
           <div className="flex flex-wrap items-center gap-2">
             <span>{c.phone.number}</span>
-            <Pending dark={dark}>อ่านจากฉลาก ยังไม่ยืนยัน</Pending>
+            <Pending dark={dark}>ยังไม่ยืนยัน</Pending>
             <CopyButton text={c.phone.number} label="คัดลอกเบอร์" className={dark ? "text-ivory" : "text-forest"} />
           </div>
         ),

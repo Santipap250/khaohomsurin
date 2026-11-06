@@ -4,7 +4,7 @@ import { Menu, ShoppingBag, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BrandMark } from "@/components/ui/BrandMark";
+import { Logo } from "@/components/ui/Logo";
 import { nav, site } from "@/config/site";
 import { useCart } from "@/lib/cart-store";
 
@@ -36,7 +36,7 @@ export function Header() {
       </a>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-3 text-gold" onClick={() => setOpen(false)} aria-label={`${site.name} หน้าแรก`}>
-          <BrandMark />
+          <Logo size={44} priority />
           <span className="leading-tight">
             <span className="font-serif-th block text-lg text-ivory">{site.name}</span>
             <span className="block text-[11px] tracking-[0.18em] text-gold-soft">{site.nameEn}</span>
