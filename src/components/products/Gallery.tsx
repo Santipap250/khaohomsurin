@@ -17,7 +17,7 @@ export function Gallery({ images }: { images: ProductImage[] }) {
           fill
           priority={active === 0}
           sizes="(min-width: 1024px) 40rem, 100vw"
-          className="object-cover"
+          className={current.fit === "contain" ? "object-contain p-6" : "object-cover"}
           style={{ objectPosition: current.position }}
         />
       </div>
@@ -34,7 +34,7 @@ export function Gallery({ images }: { images: ProductImage[] }) {
                   i === active ? "ring-gold" : "ring-transparent opacity-75 hover:opacity-100"
                 }`}
               >
-                <Image src={img.src} alt="" fill sizes="10rem" className="object-cover" style={{ objectPosition: img.position }} />
+                <Image src={img.src} alt="" fill sizes="10rem" className={img.fit === "contain" ? "object-contain p-1" : "object-cover"} style={{ objectPosition: img.position }} />
               </button>
             </li>
           ))}
