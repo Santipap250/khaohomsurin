@@ -27,20 +27,6 @@ export const products: Product[] = [
         position: "50% 55%",
       },
       {
-        src: "/images/products/boonyang-rice-lifestyle.jpg",
-        alt: "แพ็กข้าวบุญยังข้าวหอมวางซ้อนกันบนพื้นหินพร้อมรวงข้าวและถ้วยเมล็ดข้าว",
-        width: 688,
-        height: 1223,
-        position: "40% 55%",
-      },
-      {
-        src: "/images/products/rice-grains-macro.jpg",
-        alt: "ภาพใกล้เมล็ดข้าวในถ้วยไม้",
-        width: 768,
-        height: 1376,
-        position: "50% 45%",
-      },
-      {
         src: "/images/brand/label-crop.jpg",
         alt: "ฉลากสติกเกอร์จริง บุญยังข้าวหอม ข้าว สุรินทร์ ลายรวงข้าวสีทองและใบข้าวสีเขียว",
         width: 620,
