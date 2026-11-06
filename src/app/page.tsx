@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import {
   Cooking,
   Featured,
+  FactStrip,
   FaqPreview,
   FinalCta,
   Intro,
@@ -22,6 +23,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <FactStrip />
       <Intro />
       <Featured />
       <Why />

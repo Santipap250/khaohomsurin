@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} ${site.nameEn}`,
     description: site.description,
-    images: [{ url: "/images/products/boonyang-rice-pack.jpg", width: 768, height: 1376, alt: "แพ็กข้าวบุญยังข้าวหอม" }],
+    images: [{ url: "/images/products/boonyang-rice-lifestyle.jpg", width: 688, height: 1223, alt: "แพ็กข้าวบุญยังข้าวหอม" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} ${site.nameEn}`,
     description: site.description,
-    images: ["/images/products/boonyang-rice-pack.jpg"],
+    images: ["/images/products/boonyang-rice-lifestyle.jpg"],
   },
 };
 
@@ -35,7 +35,7 @@ const organization = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: site.name,
-  alternateName: [site.nameEn, site.labelBrand],
+  alternateName: [site.nameEn, site.labelBrand, site.groupName],
   url: site.url,
   description: site.description,
   ...(site.contact.phone.verified ? { telephone: site.contact.phone.number } : {}),
