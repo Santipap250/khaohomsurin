@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { PageHead } from "@/components/layout/PageHead";
+import { LoopVideo } from "@/components/ui/LoopVideo";
 import { Pending } from "@/components/ui/Pending";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -14,7 +14,7 @@ const steps = [
   { t: "การคัดเลือกวัตถุดิบ", d: "วิธีและเกณฑ์การคัดเลือกข้าวก่อนบรรจุ" },
   { t: "การผลิต", d: "ขั้นตอนการสีและเตรียมข้าว" },
   { t: "การจัดเก็บ", d: "สถานที่และวิธีจัดเก็บก่อนส่งถึงลูกค้า" },
-  { t: "การบรรจุ", d: "แพ็กใสพร้อมสติกเกอร์ฉลากบุญยังข้าวหอม (ยืนยันจากภาพสินค้า)" },
+  { t: "การบรรจุ", d: "แพ็กใสพร้อมสติกเกอร์โลโก้บุญยังข้าวหอม (ยืนยันจากภาพสินค้า)" },
   { t: "การส่งมอบสินค้า", d: "วิธีจัดส่งและระยะเวลา" },
 ];
 
@@ -45,15 +45,12 @@ export default function QualityPage() {
           ))}
         </ol>
         <div className="lg:sticky lg:top-24 lg:self-start">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-            <Image
-              src="/images/products/boonyang-rice-pack.jpg"
-              alt="ภาพแพ็กสินค้าบุญยังข้าวหอมที่ได้รับ โดยยังไม่ยืนยันชนิดข้าว"
-              fill
-              sizes="(min-width: 1024px) 28rem, 100vw"
-              className="object-cover"
-            />
-          </div>
+          <LoopVideo
+            src="/videos/pouring-rice.mp4"
+            poster="/videos/pouring-rice-poster.jpg"
+            label="วิดีโอเทเมล็ดข้าวจากถ้วยลงชามบนโต๊ะไม้"
+            className="aspect-[4/5] rounded-[2rem]"
+          />
         </div>
       </section>
     </>
