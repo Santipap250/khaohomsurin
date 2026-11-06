@@ -19,10 +19,12 @@ export const site = {
   nameEn: "KHAO HOM SURIN",
   /** Brand printed on the real product label. Keep it separate from the website brand. */
   labelBrand: "บุญยังข้าวหอม",
-  labelDescriptor: "ข้าว สุรินทร์",
+  labelDescriptor: "พื้นเมืองสุรินทร์ · ข้าวดอกมะขาม",
+  /** Group name printed on the logo */
+  groupName: "Boonyung Group",
   tagline: "ความหอมจากผืนดินสุรินทร์",
   description:
-    "ข้าวหอมสุรินทร์ ผลิตภัณฑ์ข้าวบรรจุแพ็กใต้ฉลากบุญยังข้าวหอม ดูสินค้าและเตรียมข้อความคำขอสั่งซื้อก่อนติดต่อร้าน",
+    "ข้าวหอมสุรินทร์ ผลิตภัณฑ์ข้าวบรรจุแพ็กใต้ฉลากบุญยังข้าวหอม ดูสินค้า สรุปรายการ และสั่งซื้อผ่าน LINE",
   locale: "th_TH",
 
   /** Domain: set NEXT_PUBLIC_SITE_URL in Vercel when the real domain is ready. */
@@ -33,10 +35,10 @@ export const site = {
 
   contact: {
     /**
-     * Phone number read from the product label. UNVERIFIED until the owner confirms.
-     * Set `verified: true` to show it as a tappable call link and in structured data.
+     * Phone number printed on the owner-supplied logo ("ติดต่อ"). Set `verified: false`
+     * to show it as plain text with an "unverified" badge instead of a call link.
      */
-    phone: { number: "0854655139", verified: false },
+    phone: { number: "0873549653", verified: true },
     /** Must start with https://line.me/ or https://lin.ee/ — otherwise treated as not configured. */
     lineUrl: fromEnv(process.env.NEXT_PUBLIC_LINE_URL),
     facebookUrl: null as string | null,
