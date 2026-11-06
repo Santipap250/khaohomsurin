@@ -47,8 +47,8 @@ export default function QualityPage() {
         <div className="lg:sticky lg:top-24 lg:self-start">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
             <Image
-              src="/images/products/red-rice-slate.jpg"
-              alt="เมล็ดข้าวกองบนแผ่นหินชนวนสีเข้มพร้อมรวงข้าว"
+              src="/images/products/boonyang-rice-pack.jpg"
+              alt="ภาพแพ็กสินค้าบุญยังข้าวหอมที่ได้รับ โดยยังไม่ยืนยันชนิดข้าว"
               fill
               sizes="(min-width: 1024px) 28rem, 100vw"
               className="object-cover"

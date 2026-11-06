@@ -132,8 +132,8 @@ export function Origin() {
         <Reveal delay={0.1} className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] lg:ml-12">
             <Image
-              src="/images/products/rice-grains-macro.jpg"
-              alt="ภาพใกล้เมล็ดข้าวเปลือกขาวนวลในถ้วยไม้เก่า"
+              src="/images/products/boonyang-rice-pack.jpg"
+              alt="แพ็กสินค้าบุญยังข้าวหอมตามภาพที่ให้มา โดยยังไม่ยืนยันชนิดข้าว"
               fill
               sizes="(min-width: 1024px) 36rem, 100vw"
               className="object-cover"
@@ -180,15 +180,13 @@ export function QualityTeaser() {
 export function Showcase() {
   const items = [
     { src: "/images/products/boonyang-rice-pack.jpg", alt: "แพ็กข้าวบุญยังข้าวหอมบนโต๊ะไม้ในแสงธรรมชาติ", w: 768, h: 1376 },
-    { src: "/images/products/boonyang-rice-lifestyle.jpg", alt: "แพ็กข้าววางซ้อนกันข้างรวงข้าวและถ้วยเมล็ดข้าว", w: 688, h: 1223 },
-    { src: "/images/products/rice-grains-macro.jpg", alt: "เมล็ดข้าวในถ้วยไม้แบบใกล้", w: 768, h: 1376 },
-    { src: "/images/products/red-rice-slate.jpg", alt: "เมล็ดข้าวกองบนแผ่นหินชนวนมีรวงข้าววางรอบ", w: 768, h: 1376 },
+    { src: "/images/brand/label-crop.jpg", alt: "ภาพถ่ายฉลากจริงบุญยังข้าวหอม", w: 600, h: 600 },
   ];
   return (
     <section className="bg-ivory py-20 lg:py-28">
       <div className={wrap}>
         <Reveal>
-          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ภาพจากแพ็กและเมล็ดข้าว</h2>
+          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ภาพแพ็กสินค้าและฉลากที่ได้รับ</h2>
         </Reveal>
       </div>
       <ul className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-4 lg:overflow-visible">

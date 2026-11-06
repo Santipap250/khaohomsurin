@@ -13,6 +13,13 @@ export type OrderLine = {
   slug: string;
 };
 
+export type OrderCustomerDetails = {
+  name: string;
+  address: string;
+  phone: string;
+  instructions: string;
+};
+
 /** Join cart items with product data. Items whose product no longer exists are dropped. */
 export function resolveLines(items: CartItem[]): OrderLine[] {
   return items.flatMap((item) => {
@@ -40,7 +47,11 @@ export function totals(lines: OrderLine[]) {
   return { sum, hasUnpriced: priced.length < lines.length, allUnpriced: priced.length === 0 };
 }
 
-export function buildOrderMessage(lines: OrderLine[], siteName: string): string {
+export function buildOrderMessage(
+  lines: OrderLine[],
+  siteName: string,
+  customer: OrderCustomerDetails = { name: "", address: "", phone: "", instructions: "" },
+): string {
   const rows = lines.map((l, i) => {
     const size = l.weightLabel ?? l.variantLabel;
     const price = l.unitPrice === null ? "ราคา: ขอสอบถามร้าน" : `${formatPrice(l.unitPrice * l.qty)}`;
@@ -57,9 +68,10 @@ export function buildOrderMessage(lines: OrderLine[], siteName: string): string 
     "",
     total,
     "",
-    "ชื่อผู้รับ:",
-    "ที่อยู่จัดส่ง:",
-    "เบอร์โทร:",
+    `ชื่อผู้รับ: ${customer.name}`,
+    `ที่อยู่จัดส่ง: ${customer.address}`,
+    `เบอร์โทร: ${customer.phone}`,
+    `คำแนะนำเพิ่มเติม: ${customer.instructions}`,
   ].join("\n");
 }
 
@@ -73,8 +85,10 @@ export async function copyText(text: string): Promise<boolean> {
   } catch {
     // fall through to the legacy method
   }
+  let fallbackArea: HTMLTextAreaElement | null = null;
   try {
     const ta = document.createElement("textarea");
+    fallbackArea = ta;
     ta.value = text;
     ta.setAttribute("readonly", "");
     ta.style.position = "fixed";
@@ -83,9 +97,10 @@ export async function copyText(text: string): Promise<boolean> {
     ta.select();
     ta.setSelectionRange(0, text.length);
     const ok = document.execCommand("copy");
-    document.body.removeChild(ta);
     return ok;
   } catch {
     return false;
+  } finally {
+    fallbackArea?.remove();
   }
 }
