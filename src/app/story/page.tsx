@@ -2,39 +2,42 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHead } from "@/components/layout/PageHead";
 import { ButtonLink } from "@/components/ui/Button";
+import { LoopVideo } from "@/components/ui/LoopVideo";
 import { Pending } from "@/components/ui/Pending";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "เรื่องราวของเรา",
-  description: "เรื่องราวของข้าวหอมสุรินทร์ ใต้ฉลากบุญยังข้าวหอม",
+  description: "เรื่องราวของข้าวหอมสุรินทร์ ใต้ชื่อบุญยังข้าวหอม",
   alternates: { canonical: "/story" },
 };
 
-const chapters = [
+type Chapter = { img: string; alt: string; round: boolean; title: string; body: string; pending: string | null; video?: { src: string; poster: string; label: string } };
+const chapters: Chapter[] = [
   {
-    img: "/images/brand/label-crop.jpg",
-    alt: "ฉลากสติกเกอร์จริง บุญยังข้าวหอม ข้าว สุรินทร์",
+    img: "/images/brand/logo.png",
+    alt: "โลโก้บุญยังข้าวหอม Boonyung Group พื้นเมืองสุรินทร์ ข้าวดอกมะขาม",
     round: true,
-    title: "ชื่อที่อยู่บนฉลาก",
-    body: `ฉลากกลมสีเขียวทองลายรวงข้าวเขียนว่า “${site.labelBrand}” และระบุแหล่งที่มาว่า “${site.labelDescriptor}” นี่คือสิ่งที่ลูกค้าจะเห็นเมื่อได้รับสินค้า`,
+    title: "ชื่อที่อยู่บนโลโก้",
+    body: `โลโก้กลมสีเขียวทองลายรวงข้าวเขียนว่า “${site.labelBrand}” โดย ${site.groupName} และระบุว่า “${site.labelDescriptor}” นี่คือตราที่ลูกค้าจะเห็นบนสินค้า`,
     pending: null,
   },
   {
-    img: "/images/products/boonyang-rice-pack.jpg",
-    alt: "ภาพแพ็กสินค้าบุญยังข้าวหอมที่ได้รับ โดยยังไม่ยืนยันชนิดข้าว",
+    img: "/images/products/rice-grains-macro.jpg",
+    alt: "ภาพใกล้เมล็ดข้าวในถ้วยไม้",
+    video: { src: "/videos/rice-macro.mp4", poster: "/videos/rice-macro-poster.jpg", label: "วิดีโอภาพใกล้เมล็ดข้าวในถ้วยไม้" },
     round: false,
     title: "ผืนดินสุรินทร์",
-    body: "จังหวัดสุรินทร์คือแหล่งที่มาที่ระบุบนฉลาก ข้อมูลพื้นที่เพาะปลูก ฤดูกาล และผู้ปลูกยังไม่ถูกยืนยัน จึงยังไม่เล่าในหน้านี้",
+    body: "สุรินทร์คือแหล่งที่มาที่ระบุบนโลโก้ ข้อมูลพื้นที่เพาะปลูก ฤดูกาล และผู้ปลูกยังไม่ถูกยืนยัน จึงยังไม่เล่าในหน้านี้",
     pending: "เรื่องราวการปลูกและเกษตรกร",
   },
   {
-    img: "/images/products/boonyang-rice-pack.jpg",
-    alt: "ภาพแพ็กสินค้าบุญยังข้าวหอมที่ได้รับ โดยยังไม่ยืนยันชนิดข้าว",
+    img: "/images/products/boonyang-rice-lifestyle.jpg",
+    alt: "แพ็กข้าวบุญยังข้าวหอมวางบนพื้นหินพร้อมรวงข้าว",
     round: false,
     title: "จากแปลงสู่แพ็ก",
-    body: "ข้าวบรรจุในแพ็กใสสี่เหลี่ยม ติดสติกเกอร์ฉลากหนึ่งดวง ให้เห็นเมล็ดข้าวจริงตั้งแต่ก่อนเปิดแพ็ก",
+    body: "ข้าวบรรจุในแพ็กใสสี่เหลี่ยม ติดสติกเกอร์โลโก้หนึ่งดวง ให้เห็นเมล็ดข้าวจริงตั้งแต่ก่อนเปิดแพ็ก",
     pending: "กระบวนการผลิตและการบรรจุ",
   },
   {
@@ -58,10 +61,14 @@ export default function StoryPage() {
               <div className="lg:sticky lg:top-24">
                 <div
                   className={`relative mx-auto w-full overflow-hidden ${
-                    c.round ? "aspect-square max-w-md rounded-full ring-4 ring-gold/70 ring-offset-8 ring-offset-ivory" : "aspect-[4/5] max-w-lg rounded-[2rem]"
+                    c.round ? "aspect-square max-w-md" : "aspect-[4/5] max-w-lg rounded-[2rem]"
                   }`}
                 >
-                  <Image src={c.img} alt={c.alt} fill sizes="(min-width: 1024px) 32rem, 90vw" className="object-cover" />
+                  {c.video ? (
+                    <LoopVideo src={c.video.src} poster={c.video.poster} label={c.video.label} className="absolute inset-0" />
+                  ) : (
+                    <Image src={c.img} alt={c.alt} fill sizes="(min-width: 1024px) 32rem, 90vw" className={c.round ? "object-contain" : "object-cover"} />
+                  )}
                 </div>
               </div>
             </div>
