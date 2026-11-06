@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "@fontsource-variable/noto-serif-thai";
+@import "@fontsource/ibm-plex-sans-thai/400.css";
+@import "@fontsource/ibm-plex-sans-thai/500.css";
+@import "@fontsource/ibm-plex-sans-thai/600.css";
+
+@theme {
+  --color-forest: #163d2c;
+  --color-forest-deep: #0e2a1e;
+  --color-gold: #c8a13a;
+  --color-gold-soft: #e3cb85;
+  --color-ivory: #f7f2e7;
+  --color-ivory-deep: #ebe2cc;
+  --color-earth: #72553a;
+  --color-ink: #24251f;
+  --font-serif: "Noto Serif Thai Variable", "Noto Serif Thai", Georgia, serif;
+  --font-sans: "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.75;
+  overflow-x: clip;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.font-serif-th {
+  font-family: var(--font-serif);
+  line-height: 1.35;
+}
+
+/* Page entrance (re-mounted on each navigation by app/template.tsx) */
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.page-in { animation: page-in 0.45s ease-out both; }
+
+/* Floating rice grains in the hero (decorative, hidden for reduced motion / small screens) */
+@keyframes grain-drift {
+  0% { transform: translate3d(0, 0, 0) rotate(var(--r)); opacity: 0; }
+  15% { opacity: 0.7; }
+  85% { opacity: 0.5; }
+  100% { transform: translate3d(var(--dx), -110vh, 0) rotate(calc(var(--r) + 140deg)); opacity: 0; }
+}
+.grain {
+  position: absolute;
+  bottom: -2rem;
+  width: 10px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, var(--color-gold-soft), var(--color-gold));
+  animation: grain-drift var(--d) linear var(--delay) infinite;
+  will-change: transform;
+}
+
+@keyframes scroll-cue {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.scroll-cue { animation: scroll-cue 2.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .grain, .scroll-cue, .page-in { animation: none !important; }
+  .grain { display: none; }
+}
+
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-icon { transform: rotate(180deg); }
