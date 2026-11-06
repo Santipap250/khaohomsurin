@@ -5,9 +5,10 @@ import { priceLabel } from "@/lib/format";
 import type { Product } from "@/types";
 import { AddToCart } from "./AddToCart";
 
-export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
+export function ProductCard({ product, priority = false, headingLevel = 3 }: { product: Product; priority?: boolean; headingLevel?: 2 | 3 }) {
   const img = product.images[0];
   const v = product.variants[0];
+  const Heading = headingLevel === 2 ? "h2" : "h3";
   return (
     <article className="group grid overflow-hidden rounded-3xl bg-white/70 ring-1 ring-earth/15 sm:grid-cols-2">
       <Link href={`/products/${product.slug}`} className="relative block aspect-[4/5] overflow-hidden bg-ivory-deep" aria-label={`ดูรายละเอียด ${product.name}`}>
@@ -23,9 +24,9 @@ export function ProductCard({ product, priority = false }: { product: Product; p
       </Link>
       <div className="flex flex-col justify-center gap-4 p-6 sm:p-8">
         <p className="text-sm text-earth">{product.category}</p>
-        <h3 className="font-serif-th text-2xl text-forest">
+        <Heading className="font-serif-th text-2xl text-forest">
           <Link href={`/products/${product.slug}`}>{product.name}</Link>
-        </h3>
+        </Heading>
         <p className="text-ink/80">{product.summary}</p>
         <dl className="text-sm">
           <div className="flex flex-wrap items-center gap-2">
