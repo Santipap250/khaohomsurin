@@ -1,0 +1,52 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageHead } from "@/components/layout/PageHead";
+import { site } from "@/config/site";
+
+export const metadata: Metadata = {
+  title: "ประกาศความเป็นส่วนตัว",
+  description: "ข้อมูลที่เว็บไซต์ข้าวหอมสุรินทร์เก็บในเบราว์เซอร์ และวิธีที่ลูกค้าส่งรายละเอียดคำสั่งซื้อด้วยตนเอง",
+  alternates: { canonical: "/privacy" },
+};
+
+export default function PrivacyPage() {
+  return (
+    <>
+      <PageHead
+        title="ประกาศความเป็นส่วนตัว"
+        intro="หน้านี้อธิบายการทำงานของเว็บไซต์ตามระบบที่ใช้อยู่ ไม่ใช่คำรับรองการปฏิบัติตามกฎหมาย และจะปรับปรุงเมื่อระบบเปลี่ยนแปลง"
+        crumbs={[{ label: "ประกาศความเป็นส่วนตัว" }]}
+      />
+      <article className="mx-auto max-w-3xl space-y-10 px-4 py-12 text-ink sm:px-6">
+        <section>
+          <h2 className="font-serif-th text-2xl text-forest">ข้อมูลที่เว็บไซต์จัดเก็บในเบราว์เซอร์</h2>
+          <p className="mt-3 leading-relaxed">
+            เว็บไซต์บันทึกรายการสินค้า รหัสตัวเลือก และจำนวนสินค้าในตะกร้าไว้ใน Local Storage ของเบราว์เซอร์บนอุปกรณ์ที่คุณใช้ เพื่อให้ตะกร้ายังคงอยู่เมื่อกลับมาเปิดหน้าเว็บ ข้อมูลนี้ไม่ใช่รายการสั่งซื้อที่ร้านได้รับ คุณล้างตะกร้าได้จากหน้าตะกร้า หรือลบข้อมูลเว็บไซต์จากการตั้งค่าเบราว์เซอร์
+          </p>
+        </section>
+        <section>
+          <h2 className="font-serif-th text-2xl text-forest">ข้อมูลจัดส่งและข้อความสั่งซื้อ</h2>
+          <p className="mt-3 leading-relaxed">
+            ชื่อผู้รับ ที่อยู่จัดส่ง เบอร์โทรศัพท์ และคำแนะนำเพิ่มเติมที่กรอกในหน้าตะกร้าใช้สร้างข้อความสรุปในหน้าเว็บ ข้อมูลเหล่านี้อยู่ในสถานะชั่วคราวของหน้าเว็บและไม่ได้ถูกบันทึกใน Local Storage หรือส่งไปยัง backend ของเว็บไซต์โดยอัตโนมัติ หากออกจากหรือโหลดหน้าตะกร้าใหม่ ข้อมูลที่กรอกอาจหายไป
+          </p>
+          <p className="mt-3 leading-relaxed">
+            เมื่อคุณกดคัดลอก ข้อความจะถูกส่งไปยัง clipboard ของอุปกรณ์ตามความสามารถของเบราว์เซอร์ หลังจากนั้นคุณเป็นผู้เลือกว่าจะเปิด LINE วาง และส่งข้อความหรือไม่ ปัจจุบันเว็บไซต์ยังไม่มีการตั้งค่า LINE Official Account ที่ยืนยันแล้ว จึงยังไม่มีลิงก์ LINE ให้เปิดจากหน้านี้
+          </p>
+          <p className="mt-3 leading-relaxed">
+            หากคุณนำข้อความไปส่งผ่าน LINE ข้อมูลจะถูกส่งให้ LINE และบัญชีหรือผู้รับที่คุณเลือกภายใต้บริการของ LINE; การจัดการข้อมูลหลังจากนั้นเป็นไปตามเงื่อนไขและประกาศความเป็นส่วนตัวของ LINE ไม่ใช่ backend ของเว็บไซต์นี้ เว็บไซต์ไม่ได้รับการแจ้งโดยอัตโนมัติว่าคุณกดส่งแล้ว
+          </p>
+        </section>
+        <section>
+          <h2 className="font-serif-th text-2xl text-forest">การติดต่อเกี่ยวกับข้อมูลส่วนบุคคล</h2>
+          <p className="mt-3 leading-relaxed">
+            ผู้ควบคุมข้อมูลและช่องทางติดต่อด้านความเป็นส่วนตัวยังรอเจ้าของแบรนด์ยืนยัน ไม่มีการกำหนดอีเมลหรือที่อยู่สำหรับคำขอเกี่ยวกับข้อมูลไว้ในเว็บไซต์นี้
+          </p>
+          <p className="mt-3 text-sm text-earth">สถานะช่องทางติดต่อด้านความเป็นส่วนตัว: รอข้อมูลจากเจ้าของแบรนด์</p>
+        </section>
+        <p className="border-t border-earth/20 pt-5 text-sm text-earth">
+          แบรนด์เว็บไซต์: {site.name} · สินค้าภายใต้ฉลาก {site.labelBrand}. อ่านขั้นตอนสั่งซื้อได้ที่ <Link href="/order-process" className="text-forest underline underline-offset-4">ขั้นตอนสั่งซื้อ</Link>
+        </p>
+      </article>
+    </>
+  );
+}

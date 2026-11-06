@@ -22,7 +22,7 @@ export function Footer() {
         <nav aria-label="เมนูท้ายเว็บไซต์">
           <p className="font-serif-th text-lg text-gold-soft">เมนู</p>
           <ul className="mt-3 space-y-1">
-            {[...nav, { href: "/cart", label: "ตะกร้าสินค้า" }].map((i) => (
+            {[...nav, { href: "/cart", label: "ตะกร้าสินค้า" }, { href: "/order-process", label: "ขั้นตอนการสั่งซื้อ" }, { href: "/privacy", label: "ประกาศความเป็นส่วนตัว" }].map((i) => (
               <li key={i.href}>
                 <Link href={i.href} className="inline-block py-1.5 text-ivory/85 hover:text-gold-soft">
                   {i.label}

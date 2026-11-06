@@ -71,7 +71,7 @@ export function ProductBrowser({ products, categories }: { products: Product[]; 
       ) : (
         <div className="mt-6 grid gap-8">
           {results.map((p, i) => (
-            <ProductCard key={p.slug} product={p} priority={i === 0} />
+            <ProductCard key={p.slug} product={p} priority={i === 0} headingLevel={2} />
           ))}
         </div>
       )}
