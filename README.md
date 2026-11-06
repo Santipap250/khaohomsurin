@@ -1,4 +1,4 @@
-# ข้าวหอมสุรินทร์ · KHAO HOM SURIN
+# ข้าวสุรินทร์ · KHAO HOM SURIN
 
 เว็บไซต์แบรนด์ข้าวสุรินทร์ ใต้ฉลาก **บุญยังข้าวหอม** — Next.js (App Router) + TypeScript strict + Tailwind CSS v4 + Motion
 
