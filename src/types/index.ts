@@ -5,6 +5,8 @@ export type ProductImage = {
   height: number;
   /** CSS object-position used when the image is cropped to a frame */
   position?: string;
+  /** "contain" for artwork that must not be cropped (e.g. the logo). Default "cover". */
+  fit?: "cover" | "contain";
 };
 
 export type Variant = {
