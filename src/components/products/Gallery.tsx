@@ -21,6 +21,7 @@ export function Gallery({ images }: { images: ProductImage[] }) {
           style={{ objectPosition: current.position }}
         />
       </div>
+      {current.note && <p className="mt-3 text-sm leading-relaxed text-earth">{current.note}</p>}
       {images.length > 1 && (
         <ul className="mt-3 grid grid-cols-4 gap-3" aria-label="ภาพสินค้า">
           {images.map((img, i) => (

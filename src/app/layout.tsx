@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} ${site.nameEn}`,
     description: site.description,
-    images: [{ url: "/images/products/boonyang-rice-lifestyle.jpg", width: 688, height: 1223, alt: "แพ็กข้าวบุญยังข้าวหอม" }],
+    images: [{ url: "/images/products/boonyang-rice-pack.jpg", width: 768, height: 1376, alt: "ภาพแพ็กอ้างอิงใต้ฉลากบุญยังข้าวหอม; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} ${site.nameEn}`,
     description: site.description,
-    images: ["/images/products/boonyang-rice-lifestyle.jpg"],
+    images: [{ url: "/images/products/boonyang-rice-pack.jpg", alt: "ภาพแพ็กอ้างอิงใต้ฉลากบุญยังข้าวหอม; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน" }],
   },
 };
 
@@ -35,10 +35,10 @@ const organization = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: site.name,
-  alternateName: [site.nameEn, site.labelBrand, site.groupName],
+  alternateName: [site.nameEn],
   url: site.url,
   description: site.description,
-  ...(site.contact.phone.verified ? { telephone: site.contact.phone.number } : {}),
+  ...(site.contact.phone.verified && site.contact.phone.number ? { telephone: site.contact.phone.number } : {}),
   ...(site.contact.email ? { email: site.contact.email } : {}),
 };
 

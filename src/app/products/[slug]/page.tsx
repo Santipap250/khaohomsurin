@@ -43,7 +43,7 @@ export default async function ProductPage({ params }: Props) {
     "@type": "Product",
     name: p.name,
     description: p.summary,
-    image: p.images.map((i) => `${site.url}${i.src}`),
+    image: [`${site.url}${p.images[0].src}`],
     brand: { "@type": "Brand", name: site.labelBrand },
     category: p.category,
     // Offers are emitted only when the owner has confirmed a real price.
@@ -86,7 +86,7 @@ export default async function ProductPage({ params }: Props) {
             <AddToCart product={p} withQuantity />
             <div className="mt-4 flex flex-wrap gap-3">
               <Link href="/cart" className={buttonClass("gold")}>
-                สั่งซื้อ
+                ไปที่ตะกร้า
               </Link>
               <ShareButton title={p.name} path={`/products/${p.slug}`} />
             </div>

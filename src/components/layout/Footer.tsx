@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
 import { nav, site } from "@/config/site";
+import { isLineUrl } from "@/lib/format";
 import { ContactRows } from "./ContactRows";
 
 export function Footer() {
@@ -16,13 +17,13 @@ export function Footer() {
             </div>
           </div>
           <p className="mt-5 max-w-sm text-ivory/80">
-            {site.tagline} สู่ความสุขในทุกมื้ออาหาร สินค้าใต้ชื่อ “{site.labelBrand}” · {site.groupName}
+            {site.tagline} · สินค้าภายใต้ฉลาก “{site.labelBrand}”
           </p>
         </div>
         <nav aria-label="เมนูท้ายเว็บไซต์">
           <p className="font-serif-th text-lg text-gold-soft">เมนู</p>
           <ul className="mt-3 space-y-1">
-            {[...nav, { href: "/cart", label: "ตะกร้าสินค้า" }].map((i) => (
+            {[...nav, { href: "/cart", label: "ตะกร้าสินค้า" }, { href: "/order-process", label: "ขั้นตอนการสั่งซื้อ" }, { href: "/privacy", label: "ประกาศความเป็นส่วนตัว" }].map((i) => (
               <li key={i.href}>
                 <Link href={i.href} className="inline-block py-1.5 text-ivory/85 hover:text-gold-soft">
                   {i.label}
@@ -38,7 +39,7 @@ export function Footer() {
       </div>
       <div className="border-t border-ivory/10 px-4 py-6 text-center text-sm text-ivory/60 sm:px-6">
         <p>
-          © {new Date().getFullYear()} {site.name} · ภาพ วิดีโอ และโลโก้เป็นของเจ้าของแบรนด์ · เว็บไซต์นี้รับคำขอสั่งซื้อผ่าน LINE ยังไม่มีระบบชำระเงินออนไลน์
+          © {new Date().getFullYear()} {site.name} · เว็บไซต์ไม่มีระบบรับออเดอร์หรือชำระเงินออนไลน์ {isLineUrl(site.contact.lineUrl) ? "ลูกค้าต้องคัดลอกข้อความ เปิด LINE แยกต่างหาก แล้วส่งเอง" : "ลิงก์ LINE รอการยืนยันและตั้งค่า"}
         </p>
       </div>
     </footer>

@@ -3,7 +3,7 @@
  * --------------------------------------------------------------------
  * Owner: edit this file (or set the environment variables in .env.example).
  * - Any value set to `null` is shown on the website as "waiting for setup".
- * - Links set to `null` are NOT rendered, so no broken or fake link is shown.
+ * - Links set to `null` are NOT rendered, so no broken or unverified link is shown.
  */
 
 const fromEnv = (value: string | undefined): string | null => {
@@ -17,14 +17,12 @@ export const site = {
   /** Website brand */
   name: "ข้าวหอมสุรินทร์",
   nameEn: "KHAO HOM SURIN",
-  /** Brand printed on the real product label. Keep it separate from the website brand. */
+  /** Name printed on the original product-label reference. */
   labelBrand: "บุญยังข้าวหอม",
-  labelDescriptor: "พื้นเมืองสุรินทร์ · ข้าวดอกมะขาม",
-  /** Group name printed on the logo */
-  groupName: "Boonyung Group",
-  tagline: "ความหอมจากผืนดินสุรินทร์",
+  /** Neutral description; channel readiness is shown from its actual configuration. */
+  tagline: "ข้าวหอมสุรินทร์ · KHAO HOM SURIN",
   description:
-    "ข้าวหอมสุรินทร์ ผลิตภัณฑ์ข้าวบรรจุแพ็กใต้ฉลากบุญยังข้าวหอม ดูสินค้า สรุปรายการ และสั่งซื้อผ่าน LINE",
+    "ข้าวหอมสุรินทร์ ภายใต้ฉลากบุญยังข้าวหอม ดูข้อมูลสินค้าและเตรียมข้อความคำขอสั่งซื้อด้วยตนเอง",
   locale: "th_TH",
 
   /** Domain: set NEXT_PUBLIC_SITE_URL in Vercel when the real domain is ready. */
@@ -34,17 +32,13 @@ export const site = {
   ).replace(/\/$/, ""),
 
   contact: {
-    /**
-     * Phone number printed on the owner-supplied logo ("ติดต่อ"). Set `verified: false`
-     * to show it as plain text with an "unverified" badge instead of a call link.
-     */
-    phone: { number: "0873549653", verified: true },
+    /** Current phone contact is pending owner confirmation. Do not use the historical label number as a contact. */
+    phone: { number: null as string | null, verified: false },
     /** Must start with https://line.me/ or https://lin.ee/ — otherwise treated as not configured. */
     lineUrl: fromEnv(process.env.NEXT_PUBLIC_LINE_URL),
     facebookUrl: null as string | null,
     email: null as string | null,
     address: null as string | null,
-    /** Google Maps link for the shop / farm */
     mapUrl: null as string | null,
     openingHours: null as string | null,
   },

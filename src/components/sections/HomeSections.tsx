@@ -4,7 +4,6 @@ import { AddToCart } from "@/components/products/AddToCart";
 import { ButtonLink } from "@/components/ui/Button";
 import { Pending } from "@/components/ui/Pending";
 import { LoopVideo } from "@/components/ui/LoopVideo";
-import { Logo } from "@/components/ui/Logo";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/config/site";
 import { faqs } from "@/data/faq";
@@ -20,17 +19,18 @@ export function Intro() {
     <section id="intro" className="bg-ivory py-20 lg:py-28">
       <div className={`${wrap} grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20`}>
         <Reveal>
-          <div className="mx-auto w-full max-w-md drop-shadow-[0_24px_40px_rgba(22,61,44,0.25)]">
-            <Logo size={448} className="h-auto w-full" />
-          </div>
+          <figure className="mx-auto w-full max-w-md drop-shadow-[0_24px_40px_rgba(22,61,44,0.18)]">
+            <Image src="/images/brand/label-crop.jpg" alt="ภาพอ้างอิงฉลากเดิมซึ่งมีชื่อบุญยังข้าวหอมและข้อความข้าว สุรินทร์" width={600} height={600} sizes="(min-width: 1024px) 28rem, 90vw" className="h-auto w-full rounded-full" />
+            <figcaption className="mt-3 text-center text-sm text-earth">ฉลากอ้างอิงเดิมจากเจ้าของแบรนด์; หมายเลขโทรศัพท์ที่พิมพ์บนภาพยังไม่ยืนยันว่าเป็นช่องทางติดต่อปัจจุบัน</figcaption>
+          </figure>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ตราที่บอกที่มาของข้าว</h2>
           <p className="mt-5 max-w-xl text-lg text-ink/85">
-            “{site.name}” คือชื่อเว็บไซต์นี้ ส่วนบนโลโก้และบรรจุภัณฑ์ใช้ชื่อ “{site.labelBrand}” โดย {site.groupName} ระบุว่า “{site.labelDescriptor}”
+            “{site.name}” คือชื่อเว็บไซต์ ส่วนฉลากอ้างอิงเดิมใช้ชื่อ “{site.labelBrand}” และมีข้อความ “ข้าว สุรินทร์”
           </p>
           <p className="mt-4 max-w-xl text-ink/80">
-            โลโก้นี้เป็นไฟล์ที่เจ้าของแบรนด์ส่งมา เว็บไซต์ใช้อย่างที่เป็น ไม่แก้ไขตัวอักษรหรือลวดลาย
+            แบบ artwork ใหม่ยังไม่ได้รับการยืนยัน จึงไม่แสดงเป็นโลโก้ทางการ ข้อมูลเบอร์โทรและรายละเอียดอื่นบนภาพอ้างอิงยังไม่ถือเป็นช่องทางติดต่อปัจจุบัน
           </p>
         </Reveal>
       </div>
@@ -56,7 +56,7 @@ export function Featured() {
             />
           </div>
           <div className="absolute -bottom-6 right-4 hidden w-40 overflow-hidden rounded-2xl ring-4 ring-forest sm:block">
-            <Image src={p.images[1].src} alt="" width={p.images[1].width} height={p.images[1].height} sizes="10rem" className="aspect-[3/4] object-cover" />
+            <Image src="/images/brand/label-crop.jpg" alt="ภาพอ้างอิงฉลากเดิมบุญยังข้าวหอม; ข้อมูลติดต่อที่พิมพ์ยังไม่ยืนยัน" width={600} height={600} sizes="10rem" className="aspect-square object-cover" />
           </div>
         </Reveal>
         <Reveal delay={0.1}>
@@ -82,9 +82,9 @@ export function Featured() {
 }
 
 const reasons = [
-  { t: "เห็นเมล็ดข้าวก่อนสั่ง", d: "บรรจุในแพ็กใส ดูสีและเมล็ดข้าวได้จากภาพถ่ายจริงของสินค้า" },
-  { t: "โลโก้ตรงกับของแบรนด์", d: "ใช้ไฟล์โลโก้จากเจ้าของแบรนด์ ไม่วาดใหม่ ไม่แต่งเติมข้อความ" },
-  { t: "สั่งตรงกับร้านผ่าน LINE", d: "สรุปรายการให้พร้อมส่ง ร้านเป็นผู้ยืนยันราคา การจัดส่ง และการชำระเงิน" },
+  { t: "ภาพแพ็กที่ได้รับมา", d: "ใช้ภาพแพ็กสินค้าเป็นภาพหลัก รายละเอียดที่ยังไม่ยืนยันจะแสดงว่ารอข้อมูล" },
+  { t: "แยกแบรนด์เว็บไซต์กับฉลาก", d: "เว็บไซต์ใช้ชื่อข้าวหอมสุรินทร์; ฉลากอ้างอิงเดิมใช้ชื่อบุญยังข้าวหอม" },
+  { t: "ตรวจและส่งข้อความด้วยตนเอง", d: "ลูกค้าตรวจข้อความก่อนคัดลอกและส่ง ร้านจะยังไม่ได้รับคำขอจนกว่าลูกค้าจะกดส่งผ่านช่องทางที่ยืนยัน" },
 ];
 
 export function Why() {
@@ -117,7 +117,7 @@ export function Origin() {
           <p className="text-earth">ที่มาของข้าว</p>
           <h2 className="font-serif-th mt-2 text-3xl text-forest sm:text-4xl">จากผืนดินสุรินทร์</h2>
           <p className="mt-5 max-w-lg text-lg text-ink/85">
-            โลโก้ระบุว่า “พื้นเมืองสุรินทร์ ข้าวดอกมะขาม” เรื่องราวของผู้ปลูก พื้นที่เพาะปลูก และฤดูกาลจะเพิ่มในหน้าเรื่องราวเมื่อเจ้าของแบรนด์ยืนยันข้อมูล
+            ฉลากอ้างอิงเดิมมีข้อความ “ข้าว สุรินทร์” แต่ชนิดข้าวและพื้นที่เพาะปลูกยังรอเจ้าของแบรนด์ยืนยัน
           </p>
           <div className="mt-8">
             <ButtonLink href="/story" variant="forest">
@@ -172,24 +172,27 @@ export function QualityTeaser() {
 
 export function Showcase() {
   const items = [
-    { src: "/images/products/boonyang-rice-pack.jpg", alt: "แพ็กข้าวบุญยังข้าวหอมบนโต๊ะไม้ในแสงธรรมชาติ", w: 768, h: 1376 },
-    { src: "/images/products/boonyang-rice-lifestyle.jpg", alt: "แพ็กข้าววางซ้อนกันข้างรวงข้าวและถ้วยเมล็ดข้าว", w: 688, h: 1223 },
-    { src: "/images/products/rice-grains-macro.jpg", alt: "เมล็ดข้าวในถ้วยไม้แบบใกล้", w: 768, h: 1376 },
-    { src: "/images/products/red-rice-slate.jpg", alt: "เมล็ดข้าวกองบนแผ่นหินชนวนมีรวงข้าววางรอบ", w: 768, h: 1376 },
+    { src: "/images/products/boonyang-rice-pack.jpg", alt: "ภาพแพ็กอ้างอิงภายใต้ฉลากบุญยังข้าวหอม; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน", w: 768, h: 1376, note: "ภาพแพ็กอ้างอิงจากไฟล์ที่ได้รับมา; artwork และหมายเลขโทรศัพท์บนสติกเกอร์ยังไม่ยืนยันว่าเป็นโลโก้หรือช่องทางติดต่อปัจจุบัน" },
+    { src: "/images/brand/label-crop.jpg", alt: "ภาพอ้างอิงฉลากเดิมบุญยังข้าวหอมและข้อความข้าว สุรินทร์", w: 600, h: 600, note: "ฉลากอ้างอิงเดิม; ข้อมูลติดต่อที่พิมพ์บนภาพไม่ใช่ข้อมูลติดต่อปัจจุบันที่ยืนยันแล้ว" },
+    { src: "/images/products/boonyang-rice-lifestyle.jpg", alt: "ภาพจัดวางแพ็กข้าวเชิงบรรยากาศ", w: 688, h: 1223, note: "ภาพจัดวางประกอบบรรยากาศ ไม่ใช่ภาพยืนยันรายละเอียดสินค้า" },
+    { src: "/images/products/rice-grains-macro.jpg", alt: "ภาพประกอบเมล็ดข้าวระยะใกล้", w: 768, h: 1376, note: "ภาพประกอบ ไม่ได้ยืนยันชนิดหรือพันธุ์ข้าวของสินค้า" },
   ];
   return (
     <section className="bg-ivory py-20 lg:py-28">
       <div className={wrap}>
         <Reveal>
-          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ภาพจากแพ็กและเมล็ดข้าว</h2>
+          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ภาพแพ็กและภาพประกอบ</h2>
         </Reveal>
       </div>
       <ul className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-4 lg:overflow-visible">
         {items.map((it, i) => (
           <li key={it.src} className={`w-[72%] shrink-0 snap-center sm:w-[44%] lg:w-auto ${i % 2 ? "lg:mt-12" : ""}`}>
-            <div className="relative aspect-[3/4] overflow-hidden rounded-3xl bg-ivory-deep">
-              <Image src={it.src} alt={it.alt} fill sizes="(min-width: 1024px) 22vw, 72vw" className="object-cover transition duration-700 hover:scale-[1.04]" />
-            </div>
+            <figure>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-3xl bg-ivory-deep">
+                <Image src={it.src} alt={it.alt} fill sizes="(min-width: 1024px) 22vw, 72vw" className="object-cover transition duration-700 hover:scale-[1.04]" />
+              </div>
+              <figcaption className="mt-2 text-xs leading-relaxed text-earth">{it.note}</figcaption>
+            </figure>
           </li>
         ))}
       </ul>
@@ -285,8 +288,7 @@ export function FinalCta() {
 }
 
 export function FactStrip() {
-  const [area, variety] = site.labelDescriptor.split(" · ");
-  const facts = [area, variety, site.groupName, "แพ็กใส เห็นเมล็ดข้าว"];
+  const facts = [`เว็บไซต์: ${site.name}`, `ชื่อบนฉลากอ้างอิง: ${site.labelBrand}`, "ชนิดข้าว ราคา และขนาดบรรจุ: รอยืนยัน"];
   return (
     <div className="border-y border-gold/30 bg-ivory-deep">
       <ul className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-2 px-4 py-4 text-sm text-forest sm:px-6">

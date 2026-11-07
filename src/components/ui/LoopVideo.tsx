@@ -3,10 +3,7 @@
 import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-/**
- * Short muted looping video. Loads only when near the viewport, pauses off-screen,
- * stays on the poster for prefers-reduced-motion / Data Saver, and has a pause control.
- */
+/** Short muted looping footage. Autoplay is viewport-gated and disabled for reduced motion / Data Saver. */
 export function LoopVideo({
   src,
   poster,
@@ -19,31 +16,39 @@ export function LoopVideo({
   className?: string;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
+  const userPaused = useRef(false);
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    const v = ref.current;
-    if (!v) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
-    // Reduced motion / Data Saver: never autoplay; the viewer can still press play.
-    if (reduce || conn?.saveData) return;
-    const io = new IntersectionObserver(
+    const video = ref.current;
+    if (!video) return;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    const mayAutoplay = !reducedMotion && !connection?.saveData;
+    const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) v.play().catch(() => {});
-        else v.pause();
+        if (!entry.isIntersecting) {
+          video.pause();
+        } else if (mayAutoplay && !userPaused.current) {
+          video.play().catch(() => {});
+        }
       },
       { threshold: 0.25 },
     );
-    io.observe(v);
-    return () => io.disconnect();
+    observer.observe(video);
+    return () => observer.disconnect();
   }, []);
 
   function toggle() {
-    const v = ref.current;
-    if (!v) return;
-    if (v.paused) v.play().catch(() => {});
-    else v.pause();
+    const video = ref.current;
+    if (!video) return;
+    if (video.paused) {
+      userPaused.current = false;
+      video.play().catch(() => {});
+    } else {
+      userPaused.current = true;
+      video.pause();
+    }
   }
 
   return (
@@ -62,16 +67,17 @@ export function LoopVideo({
       >
         <source src={src} type="video/mp4" />
       </video>
-      {(
-        <button
-          type="button"
-          onClick={toggle}
-          aria-label={playing ? "หยุดวิดีโอ" : "เล่นวิดีโอ"}
-          className="absolute bottom-3 right-3 grid h-11 w-11 place-items-center rounded-full bg-forest-deep/70 text-ivory backdrop-blur transition hover:bg-forest-deep"
-        >
-          {playing ? <Pause className="h-4 w-4" aria-hidden /> : <Play className="h-4 w-4" aria-hidden />}
-        </button>
-      )}
+      <p className="absolute bottom-3 left-3 max-w-[calc(100%-4.5rem)] rounded-lg bg-forest-deep/75 px-2.5 py-1.5 text-xs leading-relaxed text-ivory shadow backdrop-blur-sm">
+        ภาพวิดีโอประกอบบรรยากาศ ไม่ใช่หลักฐานยืนยันกระบวนการผลิตจริง
+      </p>
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={playing ? "หยุดวิดีโอ" : "เล่นวิดีโอ"}
+        className="absolute bottom-3 right-3 grid h-11 w-11 place-items-center rounded-full bg-forest-deep/80 text-ivory backdrop-blur transition hover:bg-forest-deep"
+      >
+        {playing ? <Pause className="h-4 w-4" aria-hidden /> : <Play className="h-4 w-4" aria-hidden />}
+      </button>
     </div>
   );
 }

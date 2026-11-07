@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "คุณภาพและกระบวนการ",
-  description: "ขั้นตอนตั้งแต่การคัดเลือกวัตถุดิบถึงการส่งมอบสินค้าข้าวหอมสุรินทร์",
+  description: "ข้อมูลคุณภาพและขั้นตอนของสินค้าข้าวหอมสุรินทร์; รายละเอียดที่ยังไม่ยืนยันแสดงเป็นสถานะรอข้อมูล",
   alternates: { canonical: "/quality" },
 };
 
