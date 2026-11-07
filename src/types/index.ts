@@ -7,6 +7,8 @@ export type ProductImage = {
   position?: string;
   /** "contain" for artwork that must not be cropped (e.g. the logo). Default "cover". */
   fit?: "cover" | "contain";
+  /** Visible disclosure for historical label details or illustrative imagery. */
+  note?: string;
 };
 
 export type Variant = {

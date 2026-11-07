@@ -31,8 +31,8 @@ export function Hero() {
     <section ref={ref} className="relative isolate flex min-h-[calc(100svh-4rem)] flex-col overflow-hidden bg-forest-deep text-ivory lg:flex-row">
       <motion.div style={{ y }} className="relative h-[56svh] shrink-0 lg:absolute lg:inset-0 lg:left-[36%] lg:h-auto lg:[mask-image:linear-gradient(to_right,transparent,#000_38%)]">
         <Image
-          src="/images/products/boonyang-rice-lifestyle.jpg"
-          alt="แพ็กข้าวบุญยังข้าวหอมวางบนพื้นหินท่ามกลางรวงข้าวและแสงอุ่นยามเย็น"
+          src="/images/products/boonyang-rice-pack.jpg"
+          alt="ภาพแพ็กอ้างอิงภายใต้ฉลากบุญยังข้าวหอม; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน"
           fill
           priority
           sizes="(min-width: 1024px) 60vw, 100vw"
@@ -68,12 +68,12 @@ export function Hero() {
             </span>
           </motion.h1>
           <motion.p variants={item} className="mt-5 max-w-md text-ivory/80">
-            The essence of Surin. The beauty of Thai rice. ข้าวสุรินทร์ “{site.labelBrand}” โดย {site.groupName}
+            สินค้าภายใต้ฉลากอ้างอิง “{site.labelBrand}” · artwork บนแพ็กและรายละเอียดการจำหน่ายรอการยืนยัน
           </motion.p>
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/products">เลือกชมสินค้า</ButtonLink>
             <ButtonLink href="/cart" variant="ghostLight">
-              สั่งซื้อ
+              ไปที่ตะกร้า
             </ButtonLink>
           </motion.div>
         </motion.div>

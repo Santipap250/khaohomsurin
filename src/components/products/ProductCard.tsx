@@ -11,17 +11,20 @@ export function ProductCard({ product, priority = false, headingLevel = 3 }: { p
   const Heading = headingLevel === 2 ? "h2" : "h3";
   return (
     <article className="group grid overflow-hidden rounded-3xl bg-white/70 ring-1 ring-earth/15 sm:grid-cols-2">
-      <Link href={`/products/${product.slug}`} className="relative block aspect-[4/5] overflow-hidden bg-ivory-deep" aria-label={`ดูรายละเอียด ${product.name}`}>
-        <Image
-          src={img.src}
-          alt={img.alt}
-          fill
-          priority={priority}
-          sizes="(min-width: 1024px) 28rem, (min-width: 640px) 45vw, 100vw"
-          className="object-cover transition duration-700 group-hover:scale-[1.03]"
-          style={{ objectPosition: img.position }}
-        />
-      </Link>
+      <figure>
+        <Link href={`/products/${product.slug}`} className="relative block aspect-[4/5] overflow-hidden bg-ivory-deep" aria-label={`ดูรายละเอียด ${product.name}`}>
+          <Image
+            src={img.src}
+            alt={img.alt}
+            fill
+            priority={priority}
+            sizes="(min-width: 1024px) 28rem, (min-width: 640px) 45vw, 100vw"
+            className="object-cover transition duration-700 group-hover:scale-[1.03]"
+            style={{ objectPosition: img.position }}
+          />
+        </Link>
+        {img.note && <figcaption className="px-4 pt-2 text-xs leading-relaxed text-earth">{img.note}</figcaption>}
+      </figure>
       <div className="flex flex-col justify-center gap-4 p-6 sm:p-8">
         <p className="text-sm text-earth">{product.category}</p>
         <Heading className="font-serif-th text-2xl text-forest">

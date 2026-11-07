@@ -1,7 +1,6 @@
 import { Mail, MapPin, MessageCircle, Phone, Clock, Globe } from "lucide-react";
 import { site } from "@/config/site";
 import { isLineUrl } from "@/lib/format";
-import { CopyButton } from "@/components/ui/CopyButton";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { Pending } from "@/components/ui/Pending";
 
@@ -40,16 +39,12 @@ export function ContactRows({ dark = false }: Props) {
       {row(
         <Phone className="h-5 w-5" aria-hidden />,
         "โทรศัพท์",
-        c.phone.verified ? (
+        c.phone.verified && c.phone.number ? (
           <a href={`tel:${c.phone.number}`} className={linkCls}>
             {c.phone.number}
           </a>
         ) : (
-          <div className="flex flex-wrap items-center gap-2">
-            <span>{c.phone.number}</span>
-            <Pending dark={dark}>ยังไม่ยืนยัน</Pending>
-            <CopyButton text={c.phone.number} label="คัดลอกเบอร์" className={dark ? "text-ivory" : "text-forest"} />
-          </div>
+          <Pending dark={dark}>รอเจ้าของแบรนด์ยืนยันเบอร์ติดต่อ</Pending>
         ),
       )}
       {row(
