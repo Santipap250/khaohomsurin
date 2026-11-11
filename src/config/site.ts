@@ -20,9 +20,9 @@ export const site = {
   /** Name printed on the original product-label reference. */
   labelBrand: "บุญยังข้าวหอม",
   /** Neutral description; channel readiness is shown from its actual configuration. */
-  tagline: "ข้าวหอมสุรินทร์ · KHAO HOM SURIN",
+  tagline: "ข้าวซ้อมมือปะกาอำปึล · ข้าวดอกมะขาม",
   description:
-    "ข้าวหอมสุรินทร์ ภายใต้ฉลากบุญยังข้าวหอม ดูข้อมูลสินค้าและเตรียมข้อความคำขอสั่งซื้อด้วยตนเอง",
+    "ข้าวซ้อมมือปะกาอำปึล หรือข้าวดอกมะขาม ข้าวเจ้าพื้นเมืองสุรินทร์ ดูเรื่องราวและข้อมูลสินค้า; รายละเอียดของแต่ละล็อตที่ยังไม่ยืนยันจะแสดงแยกไว้",
   locale: "th_TH",
 
   /** Domain: set NEXT_PUBLIC_SITE_URL in Vercel when the real domain is ready. */

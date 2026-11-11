@@ -15,7 +15,7 @@ import {
 } from "@/components/sections/HomeSections";
 
 export const metadata: Metadata = {
-  title: { absolute: "ข้าวหอมสุรินทร์ KHAO HOM SURIN | บุญยังข้าวหอม" },
+  title: { absolute: "ข้าวซ้อมมือปะกาอำปึล ข้าวดอกมะขาม | ข้าวหอมสุรินทร์" },
   alternates: { canonical: "/" },
 };
 

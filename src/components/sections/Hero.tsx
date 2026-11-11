@@ -62,13 +62,13 @@ export function Hero() {
             {site.name} · {site.nameEn}
           </motion.p>
           <motion.h1 variants={item} className="font-serif-th mt-4 text-[2.1rem] sm:text-5xl lg:text-6xl">
-            ความหอมจากผืนดินสุรินทร์
+            ข้าวซ้อมมือปะกาอำปึล
             <span className="mt-2 block text-[1.35rem] text-ivory/90 sm:text-3xl lg:text-4xl">
-              เติมเต็มความสุขในทุกมื้ออาหาร
+              ข้าวดอกมะขาม พื้นเมืองสุรินทร์
             </span>
           </motion.h1>
           <motion.p variants={item} className="mt-5 max-w-md text-ivory/80">
-            สินค้าภายใต้ฉลากอ้างอิง “{site.labelBrand}” · artwork บนแพ็กและรายละเอียดการจำหน่ายรอการยืนยัน
+            ข้าวเจ้าพื้นเมืองที่รู้จักในชื่อปะกาอำปึล; รายละเอียดแปลงปลูกของล็อตนี้ ราคาและขนาดบรรจุยังรอยืนยัน
           </motion.p>
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/products">เลือกชมสินค้า</ButtonLink>
