@@ -6,7 +6,7 @@ import { faqs } from "@/data/faq";
 
 export const metadata: Metadata = {
   title: "คำถามที่พบบ่อย",
-  description: "วิธีสั่งซื้อ การชำระเงิน ราคา และข้อมูลสินค้าข้าวหอมสุรินทร์",
+  description: "วิธีสั่งซื้อ ราคา และข้อมูลข้าวซ้อมมือปะกาอำปึลหรือข้าวดอกมะขาม พื้นเมืองสุรินทร์",
   alternates: { canonical: "/faq" },
 };
 

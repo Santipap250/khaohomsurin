@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} ${site.nameEn}`,
     description: site.description,
-    images: [{ url: "/images/products/boonyang-rice-pack.jpg", width: 768, height: 1376, alt: "ภาพแพ็กอ้างอิงใต้ฉลากบุญยังข้าวหอม; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน" }],
+    images: [{ url: "/images/products/boonyang-rice-pack.jpg", width: 768, height: 1376, alt: "ภาพแพ็กอ้างอิงข้าวซ้อมมือปะกาอำปึล; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} ${site.nameEn}`,
     description: site.description,
-    images: [{ url: "/images/products/boonyang-rice-pack.jpg", alt: "ภาพแพ็กอ้างอิงใต้ฉลากบุญยังข้าวหอม; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน" }],
+    images: [{ url: "/images/products/boonyang-rice-pack.jpg", alt: "ภาพแพ็กอ้างอิงข้าวซ้อมมือปะกาอำปึล; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน" }],
   },
 };
 

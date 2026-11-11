@@ -25,12 +25,12 @@ export function Intro() {
           </figure>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ตราที่บอกที่มาของข้าว</h2>
+          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">ข้าวดอกมะขาม พื้นเมืองสุรินทร์</h2>
           <p className="mt-5 max-w-xl text-lg text-ink/85">
-            “{site.name}” คือชื่อเว็บไซต์ ส่วนฉลากอ้างอิงเดิมใช้ชื่อ “{site.labelBrand}” และมีข้อความ “ข้าว สุรินทร์”
+            ข้าวที่นำเสนอคือข้าวซ้อมมือปะกาอำปึล หรือข้าวดอกมะขาม ซึ่งกรมการข้าวและแหล่งอ้างอิงระบุว่าเป็นข้าวเจ้าพื้นเมืองสุรินทร์
           </p>
           <p className="mt-4 max-w-xl text-ink/80">
-            แบบ artwork ใหม่ยังไม่ได้รับการยืนยัน จึงไม่แสดงเป็นโลโก้ทางการ ข้อมูลเบอร์โทรและรายละเอียดอื่นบนภาพอ้างอิงยังไม่ถือเป็นช่องทางติดต่อปัจจุบัน
+            “{site.name}” คือชื่อเว็บไซต์ ส่วนฉลากอ้างอิงเดิมใช้ชื่อ “{site.labelBrand}” รายละเอียดแปลงปลูกของล็อตนี้ ราคาและขนาดบรรจุยังรอยืนยัน
           </p>
         </Reveal>
       </div>
@@ -82,9 +82,9 @@ export function Featured() {
 }
 
 const reasons = [
-  { t: "ภาพแพ็กที่ได้รับมา", d: "ใช้ภาพแพ็กสินค้าเป็นภาพหลัก รายละเอียดที่ยังไม่ยืนยันจะแสดงว่ารอข้อมูล" },
-  { t: "แยกแบรนด์เว็บไซต์กับฉลาก", d: "เว็บไซต์ใช้ชื่อข้าวหอมสุรินทร์; ฉลากอ้างอิงเดิมใช้ชื่อบุญยังข้าวหอม" },
-  { t: "ตรวจและส่งข้อความด้วยตนเอง", d: "ลูกค้าตรวจข้อความก่อนคัดลอกและส่ง ร้านจะยังไม่ได้รับคำขอจนกว่าลูกค้าจะกดส่งผ่านช่องทางที่ยืนยัน" },
+  { t: "ชื่อพันธุ์: ปะกาอำปึล", d: "มีชื่อเรียกว่าปกาอำปึล ผกาอำปึล หรือข้าวดอกมะขาม โดยแหล่งข้อมูลแปลชื่อว่า ‘ดอกมะขาม’" },
+  { t: "ถิ่นปลูกสุรินทร์", d: "มีข้อมูลระบุการปลูกตามแนวชายแดนไทย–กัมพูชา โดยฝั่งไทยอยู่ในจังหวัดสุรินทร์" },
+  { t: "ซ้อมมือคือวิธีสี", d: "คำว่าข้าวซ้อมมือหมายถึงข้าวที่ผ่านการขัดสีเพียงเล็กน้อย ไม่ใช่ชื่อพันธุ์ข้าว" },
 ];
 
 export function Why() {
@@ -92,7 +92,7 @@ export function Why() {
     <section className="bg-ivory py-20 lg:py-28">
       <div className={`${wrap} grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20`}>
         <Reveal>
-          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">เหตุผลที่เลือกข้าวหอมสุรินทร์</h2>
+          <h2 className="font-serif-th text-3xl text-forest sm:text-4xl">รู้จักข้าวซ้อมมือดอกมะขาม</h2>
         </Reveal>
         <ul className="divide-y divide-earth/25 border-y border-earth/25">
           {reasons.map((r, i) => (
@@ -115,9 +115,9 @@ export function Origin() {
       <div className={`${wrap} grid items-center gap-12 lg:grid-cols-2 lg:gap-20`}>
         <Reveal>
           <p className="text-earth">ที่มาของข้าว</p>
-          <h2 className="font-serif-th mt-2 text-3xl text-forest sm:text-4xl">จากผืนดินสุรินทร์</h2>
+          <h2 className="font-serif-th mt-2 text-3xl text-forest sm:text-4xl">ถิ่นปลูกตามแนวชายแดน</h2>
           <p className="mt-5 max-w-lg text-lg text-ink/85">
-            ฉลากอ้างอิงเดิมมีข้อความ “ข้าว สุรินทร์” แต่ชนิดข้าวและพื้นที่เพาะปลูกยังรอเจ้าของแบรนด์ยืนยัน
+            แหล่งข้อมูลระบุว่าปะกาอำปึลเป็นข้าวเจ้าพื้นเมืองสุรินทร์ และมีถิ่นปลูกตามแนวชายแดนไทย–กัมพูชา ส่วนแปลงปลูกของสินค้าแต่ละล็อตยังรอยืนยัน
           </p>
           <div className="mt-8">
             <ButtonLink href="/story" variant="forest">
@@ -273,8 +273,8 @@ export function FinalCta() {
     <section className="bg-forest py-20 text-center text-ivory lg:py-28">
       <div className={`${wrap} max-w-3xl`}>
         <Reveal>
-          <h2 className="font-serif-th text-3xl sm:text-5xl">รับกลิ่นหอมของข้าวสุรินทร์ไปที่บ้านคุณ</h2>
-          <p className="mx-auto mt-5 max-w-xl text-ivory/80">เลือกสินค้า สรุปรายการ แล้วส่งคำขอสั่งซื้อให้ร้านทาง LINE</p>
+          <h2 className="font-serif-th text-3xl sm:text-5xl">ทำความรู้จักข้าวปะกาอำปึล</h2>
+          <p className="mx-auto mt-5 max-w-xl text-ivory/80">อ่านที่มาของข้าวดอกมะขามและดูข้อมูลสินค้าที่ระบุไว้ โดยแยกข้อมูลที่ยังรอยืนยันให้ชัดเจน</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <ButtonLink href="/products">เลือกชมสินค้า</ButtonLink>
             <ButtonLink href="/contact" variant="ghostLight">
@@ -288,7 +288,7 @@ export function FinalCta() {
 }
 
 export function FactStrip() {
-  const facts = [`เว็บไซต์: ${site.name}`, `ชื่อบนฉลากอ้างอิง: ${site.labelBrand}`, "ชนิดข้าว ราคา และขนาดบรรจุ: รอยืนยัน"];
+  const facts = [`เว็บไซต์: ${site.name}`, "สินค้า: ข้าวซ้อมมือปะกาอำปึล (ข้าวดอกมะขาม)", `ฉลากอ้างอิง: ${site.labelBrand}; แปลงปลูกล็อตนี้ ราคาและขนาด: รอยืนยัน`];
   return (
     <div className="border-y border-gold/30 bg-ivory-deep">
       <ul className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-2 px-4 py-4 text-sm text-forest sm:px-6">

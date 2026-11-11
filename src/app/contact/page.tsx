@@ -6,7 +6,7 @@ import { buttonClass } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "ติดต่อและสั่งซื้อ",
-  description: "ข้อมูลติดต่อและรายละเอียดการเตรียมคำขอสั่งซื้อข้าวหอมสุรินทร์ ช่องทางร้านจะแสดงเมื่อได้รับการยืนยัน",
+  description: "ข้อมูลติดต่อและรายละเอียดการเตรียมคำขอสั่งซื้อข้าวซ้อมมือปะกาอำปึล ช่องทางร้านจะแสดงเมื่อได้รับการยืนยัน",
   alternates: { canonical: "/contact" },
 };
 
