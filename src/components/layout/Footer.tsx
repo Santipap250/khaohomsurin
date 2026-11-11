@@ -6,8 +6,9 @@ import { ContactRows } from "./ContactRows";
 
 export function Footer() {
   return (
-    <footer className="bg-forest-deep text-ivory">
-      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_1.2fr]">
+    <footer className="relative overflow-hidden bg-forest-deep text-ivory">
+      <div aria-hidden className="pointer-events-none absolute -bottom-32 -right-16 h-72 w-72 rounded-full border border-gold/15 bg-gold/5 blur-3xl" />
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_1.2fr] lg:py-20">
         <div>
           <div className="flex items-center gap-3 text-gold">
             <Logo size={64} />
@@ -16,12 +17,15 @@ export function Footer() {
               <p className="text-xs tracking-[0.2em] text-gold-soft">{site.nameEn}</p>
             </div>
           </div>
-          <p className="mt-5 max-w-sm text-ivory/80">
+          <p className="eyebrow mt-6 text-gold-soft">
+            ข้าวพื้นถิ่นสุรินทร์ · คัดข้อมูลอย่างตรงไปตรงมา
+          </p>
+          <p className="mt-3 max-w-sm text-ivory/70">
             {site.tagline} · สินค้าภายใต้ฉลาก “{site.labelBrand}”
           </p>
         </div>
         <nav aria-label="เมนูท้ายเว็บไซต์">
-          <p className="font-serif-th text-lg text-gold-soft">เมนู</p>
+          <p className="eyebrow text-gold-soft">สำรวจเว็บไซต์</p>
           <ul className="mt-3 space-y-1">
             {[...nav, { href: "/cart", label: "ตะกร้าสินค้า" }, { href: "/order-process", label: "ขั้นตอนการสั่งซื้อ" }, { href: "/privacy", label: "ประกาศความเป็นส่วนตัว" }].map((i) => (
               <li key={i.href}>
@@ -33,7 +37,7 @@ export function Footer() {
           </ul>
         </nav>
         <div>
-          <p className="font-serif-th text-lg text-gold-soft">ติดต่อ</p>
+          <p className="eyebrow text-gold-soft">พูดคุยกับร้าน</p>
           <ContactRows dark />
         </div>
       </div>

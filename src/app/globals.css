@@ -24,11 +24,38 @@ html {
 }
 
 body {
-  background: var(--color-ivory);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(200, 161, 58, 0.08), transparent 26rem),
+    var(--color-ivory);
   color: var(--color-ink);
   font-family: var(--font-sans);
   line-height: 1.75;
   overflow-x: clip;
+}
+
+::selection { background: rgba(200, 161, 58, 0.3); color: var(--color-forest-deep); }
+
+.surface-card {
+  border: 1px solid rgba(114, 85, 58, 0.14);
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 18px 50px rgba(22, 61, 44, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.eyebrow {
+  color: var(--color-earth);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.gold-rule {
+  display: inline-block;
+  height: 1px;
+  width: 3.5rem;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+  vertical-align: middle;
 }
 
 :focus-visible {
@@ -48,6 +75,10 @@ body {
   to { opacity: 1; }
 }
 .page-in { animation: page-in 0.45s ease-out both; }
+
+@media (min-width: 1024px) {
+  .page-in { animation-duration: 0.6s; }
+}
 
 /* Floating rice grains in the hero (decorative, hidden for reduced motion / small screens) */
 @keyframes grain-drift {

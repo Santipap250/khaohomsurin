@@ -10,9 +10,10 @@ export function PageHead({
   crumbs: { label: string; href?: string }[];
 }) {
   return (
-    <div className="bg-forest text-ivory">
-      <div className="mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 sm:pb-16">
-        <nav aria-label="Breadcrumb" className="text-sm text-ivory/70">
+    <div className="relative overflow-hidden bg-forest-deep text-ivory">
+      <div aria-hidden className="pointer-events-none absolute -right-32 -top-40 h-96 w-96 rounded-full border border-gold/20 bg-gold/5 blur-2xl" />
+      <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-8 sm:px-6 sm:pb-20 lg:pt-10">
+        <nav aria-label="Breadcrumb" className="text-xs tracking-wide text-ivory/60">
           <ol className="flex flex-wrap items-center gap-2">
             <li>
               <Link href="/" className="hover:text-gold-soft">
@@ -35,8 +36,12 @@ export function PageHead({
             ))}
           </ol>
         </nav>
-        <h1 className="font-serif-th mt-6 text-4xl sm:text-5xl">{title}</h1>
-        {intro && <p className="mt-4 max-w-2xl text-lg text-ivory/80">{intro}</p>}
+        <div className="mt-10 flex items-center gap-3 text-xs font-semibold tracking-[0.2em] text-gold-soft">
+          <span className="gold-rule bg-gold" aria-hidden />
+          KHAO HOM SURIN
+        </div>
+        <h1 className="font-serif-th mt-4 max-w-4xl text-4xl leading-tight sm:text-5xl lg:text-6xl">{title}</h1>
+        {intro && <p className="mt-5 max-w-2xl text-base leading-8 text-ivory/75 sm:text-lg">{intro}</p>}
       </div>
     </div>
   );

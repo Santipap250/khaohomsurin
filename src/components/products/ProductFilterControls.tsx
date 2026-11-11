@@ -36,7 +36,7 @@ export function ProductFilterControls({
             aria-pressed={category === item}
             onClick={() => update(item)}
             className={`min-h-11 rounded-full border px-5 text-sm font-medium transition ${
-              category === item ? "border-forest bg-forest text-ivory" : "border-earth/40 text-earth hover:bg-ivory-deep"
+              category === item ? "border-forest bg-forest text-ivory shadow-[0_8px_18px_rgba(22,61,44,0.16)]" : "border-earth/25 bg-ivory/60 text-earth hover:border-gold hover:bg-gold/10"
             }`}
           >
             {item}
@@ -62,7 +62,7 @@ export function ProductFilterControls({
           onChange={(event) => setText(event.target.value)}
           placeholder="ค้นหาสินค้า"
           maxLength={60}
-          className="min-h-11 w-full rounded-full border border-earth/40 bg-white/70 pl-11 pr-4 text-base placeholder:text-earth/60"
+          className="min-h-11 w-full rounded-full border border-earth/20 bg-ivory/70 pl-11 pr-4 text-base shadow-inner outline-none placeholder:text-earth/60 focus:border-gold focus:ring-2 focus:ring-gold/20"
         />
       </form>
     </div>
