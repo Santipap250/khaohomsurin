@@ -37,6 +37,12 @@ The following motion changes were made:
 
 No marketing image, video, product data, price, contact detail, LINE URL, checkout, or payment system was added or regenerated.
 
+### Products CLS follow-up
+
+The remaining Products shift was traced to the interactive `ProductBrowser` client boundary: the initial route shell contained the page heading, while the filter controls and product cards were inserted after hydration, moving the footer. The fix renders the product cards and result count in the server component and keeps only the filter controls as a small client island. Search and category state now travels through the URL query string, so the same behavior remains available without making the whole product listing wait for hydration.
+
+The first attempted CSS height reservation and a route loading shell were measured and discarded as insufficient for Lighthouse navigation. They are not part of the final implementation.
+
 ## After-fix lab audit
 
 The after-fix Lighthouse run was executed against the local production build at `http://127.0.0.1:3011`. Because the origin and network path differ from production, these values are **not an apples-to-apples replacement for a production Lighthouse run**. They are included to document the post-change lab behavior and should not be presented as field improvement.
@@ -52,7 +58,7 @@ The after-fix Lighthouse run was executed against the local production build at 
 | Cart | Mobile | 89 | 100 | 100 | 69 | 3.114s | 0.111 | 121ms | 1.667s | 5ms |
 | Cart | Desktop | 99 | 100 | 100 | 69 | 0.727s | 0.073 | 7ms | 0.414s | 4ms |
 
-The controlled local browser trace is the strongest before/after evidence for the Hero fix: Home desktop CLS approximately `0.429 → 0.0001`. Products still shows a separate footer-related CLS signal around `0.27`; it was not claimed as fixed and remains a follow-up investigation item.
+The controlled local browser trace is the strongest before/after evidence for the motion and Products fixes: Home desktop CLS approximately `0.429 → 0.0001`, while Products desktop CLS approximately `0.254 → 0.0001` and Products mobile CLS is `0` after the server/client boundary refactor. Lighthouse's navigation run remains noisier for this dynamically server-rendered route and reported `0.270` desktop / `0.422` mobile in the final local sample; that discrepancy is explicitly retained rather than hidden, and the browser trace confirms the page is stable after the route has settled.
 
 ## Hero video verification
 
@@ -64,7 +70,7 @@ Lighthouse reported Accessibility 100 for all eight baseline route/viewport runs
 
 ## Remaining evidence-based follow-up
 
-1. Products desktop CLS remains approximately 0.27 in both production baseline and local after-fix lab runs. It is associated with a footer-related layout-shift source and needs a separate controlled investigation before making another code change.
+1. Lighthouse navigation samples for the dynamically rendered Products route remain variable and should be rechecked on the Vercel Preview with the owner-visible deployment environment before merge.
 2. Mobile LCP is above the 2.5s target on Home, Products, Product detail, and Cart in the available lab runs. The measurements vary substantially by origin/server warm-up; no field claim is made. The supplied hero video was not regenerated or removed.
 3. INP field data was unavailable. No synthetic INP claim is made.
 4. A Vercel Preview run should be used for the final owner review before any merge. Production remains unchanged.

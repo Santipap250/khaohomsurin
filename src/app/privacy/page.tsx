@@ -40,9 +40,9 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-serif-th text-2xl text-forest">การติดต่อเกี่ยวกับข้อมูลส่วนบุคคล</h2>
           <p className="mt-3 leading-relaxed">
-            ผู้ควบคุมข้อมูลและช่องทางติดต่อด้านความเป็นส่วนตัวยังรอเจ้าของแบรนด์ยืนยัน ไม่มีการกำหนดอีเมลหรือที่อยู่สำหรับคำขอเกี่ยวกับข้อมูลไว้ในเว็บไซต์นี้
+            ช่องทางติดต่อทั่วไปที่เจ้าของแบรนด์ให้ไว้คืออีเมล {site.contact.email ?? "รอการตั้งค่า"} และ LINE ที่แสดงในหน้าติดต่อ อย่างไรก็ตาม เว็บไซต์ยังไม่ได้กำหนดระบบรับคำขอเกี่ยวกับข้อมูลส่วนบุคคลหรือฐานข้อมูล backend สำหรับจัดเก็บคำขอ
           </p>
-          <p className="mt-3 text-sm text-earth">สถานะช่องทางติดต่อด้านความเป็นส่วนตัว: รอข้อมูลจากเจ้าของแบรนด์</p>
+          <p className="mt-3 text-sm text-earth">หากต้องการสอบถามเรื่องข้อมูลส่วนบุคคล โปรดติดต่อผ่านช่องทางที่แสดงในหน้าติดต่อ และหลีกเลี่ยงการส่งข้อมูลสำคัญเกินจำเป็น</p>
         </section>
         <p className="border-t border-earth/20 pt-5 text-sm text-earth">
           แบรนด์เว็บไซต์: {site.name} · สินค้าภายใต้ฉลาก {site.labelBrand}. อ่านขั้นตอนสั่งซื้อได้ที่ <Link href="/order-process" className="text-forest underline underline-offset-4">ขั้นตอนสั่งซื้อ</Link>
