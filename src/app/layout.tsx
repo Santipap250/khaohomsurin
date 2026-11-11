@@ -45,6 +45,7 @@ const organization = {
   description: site.description,
   ...(site.contact.phone.verified && site.contact.phone.number ? { telephone: site.contact.phone.number } : {}),
   ...(site.contact.email ? { email: site.contact.email } : {}),
+  ...(site.contact.facebookUrl ? { sameAs: [site.contact.facebookUrl] } : {}),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
