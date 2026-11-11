@@ -27,7 +27,7 @@ export function ContactRows({ dark = false }: Props) {
     <ul className={`divide-y ${dark ? "divide-ivory/15" : "divide-earth/20"}`}>
       {row(
         <MessageCircle className="h-5 w-5" aria-hidden />,
-        "LINE Official Account",
+        "LINE",
         isLineUrl(c.lineUrl) ? (
           <ExternalLink href={c.lineUrl} className={linkCls}>
             เปิดแชต LINE

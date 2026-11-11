@@ -32,12 +32,12 @@ export const site = {
   ).replace(/\/$/, ""),
 
   contact: {
-    /** Current phone contact is pending owner confirmation. Do not use the historical label number as a contact. */
-    phone: { number: null as string | null, verified: false },
-    /** Must start with https://line.me/ or https://lin.ee/ — otherwise treated as not configured. */
-    lineUrl: fromEnv(process.env.NEXT_PUBLIC_LINE_URL),
+    /** Contact details provided by the owner for the current ordering channel. */
+    phone: { number: "0854655139", verified: true },
+    /** LINE ID: bom_is_happiness, represented as a personal LINE profile URL. */
+    lineUrl: "https://line.me/ti/p/~bom_is_happiness",
     facebookUrl: null as string | null,
-    email: null as string | null,
+    email: "Bom-tan@hotmail.com",
     address: null as string | null,
     mapUrl: null as string | null,
     openingHours: null as string | null,

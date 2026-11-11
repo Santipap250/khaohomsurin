@@ -40,11 +40,6 @@ export default function OrderProcessPage() {
             </li>
           ))}
         </ol>
-        {!isLineUrl(site.contact.lineUrl) && (
-          <p role="status" className="mt-8 rounded-2xl border border-gold/60 bg-gold/10 p-4 text-ink">
-            สถานะปัจจุบัน: รอลิงก์ LINE Official Account ที่เจ้าของแบรนด์ยืนยัน อย่าส่งข้อมูลส่วนบุคคลไปยังลิงก์ที่ไม่ทราบแหล่งที่มา
-          </p>
-        )}
         <p className="mt-8 text-sm text-earth">ข้อมูลเกี่ยวกับการจัดเก็บและส่งข้อมูล อ่านได้ที่ <Link href="/privacy" className="text-forest underline underline-offset-4">ประกาศความเป็นส่วนตัว</Link></p>
       </section>
     </>

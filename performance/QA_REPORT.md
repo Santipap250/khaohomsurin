@@ -29,7 +29,7 @@ The following flow passed on the local production build at 390px:
 4. Reloaded Cart and verified Local Storage persistence.
 5. Confirmed editable order fields and the editable order-message text area are present.
 6. Confirmed the copy-order-message control is present.
-7. Confirmed no LINE link is rendered while the LINE Official Account remains unconfigured.
+7. Confirmed the owner-provided LINE link, telephone link, and email link render on the contact and ordering surfaces.
 8. Confirmed the UI discloses that this is an order request, not an online payment or automatic checkout.
 
 No fake checkout, payment, automatic order receiver, or unverified LINE account was introduced.
