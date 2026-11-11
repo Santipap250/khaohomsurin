@@ -68,12 +68,12 @@ export default async function ProductPage({ params }: Props) {
       <PageHead title={p.name} crumbs={[{ label: "สินค้า", href: "/products" }, { label: p.name }]} />
       <section className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-16">
         <Gallery images={p.images} />
-        <div>
-          <p className="text-earth">{p.category}</p>
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <p className="eyebrow">{p.category}</p>
           <p className="mt-1 text-sm text-earth">{p.nameEn}</p>
-          <p className="mt-4 text-lg text-ink/85">{p.description}</p>
+          <p className="mt-5 text-lg leading-8 text-ink/85">{p.description}</p>
 
-          <p className="mt-6 flex flex-wrap items-baseline gap-3">
+          <p className="mt-7 flex flex-wrap items-baseline gap-3">
             <span className="text-sm text-earth">ราคา</span>
             {v.price === null ? <Pending>รอกำหนดราคา</Pending> : <span className="font-serif-th text-3xl text-forest">เริ่มต้น {priceLabel(v.price)}</span>}
           </p>
@@ -82,7 +82,7 @@ export default async function ProductPage({ params }: Props) {
             {p.variants.map((variant) => variant.weightLabel).filter(Boolean).join(" · ") || <Pending>รอกำหนดขนาด</Pending>}
           </p>
 
-          <div className="mt-8 rounded-3xl bg-white/70 p-5 ring-1 ring-earth/15">
+          <div className="surface-card mt-8 rounded-[2rem] p-5 sm:p-6">
             <AddToCart product={p} withQuantity />
             <div className="mt-4 flex flex-wrap gap-3">
               <Link href="/cart" className={buttonClass("gold")}>

@@ -34,14 +34,14 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-gold/20 bg-forest-deep/95 text-ivory backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-gold/25 bg-forest-deep/95 text-ivory shadow-[0_8px_30px_rgba(14,42,30,0.12)] backdrop-blur-xl">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:rounded focus:bg-gold focus:px-4 focus:py-2 focus:text-forest-deep"
       >
         ข้ามไปยังเนื้อหา
       </a>
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-[4.75rem]">
         <Link href="/" className="flex items-center gap-3 text-gold" onClick={() => setOpen(false)} aria-label={`${site.name} หน้าแรก`}>
           <Logo size={44} priority />
           <span className="leading-tight">
@@ -57,8 +57,8 @@ export function Header() {
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`rounded-full px-4 py-2 text-[15px] transition ${
-                    isActive(item.href) ? "bg-gold/15 text-gold-soft" : "text-ivory/85 hover:text-gold-soft"
+                  className={`rounded-full px-4 py-2.5 text-[15px] transition ${
+                    isActive(item.href) ? "bg-gold/15 text-gold-soft shadow-[inset_0_0_0_1px_rgba(227,203,133,0.16)]" : "text-ivory/80 hover:bg-ivory/5 hover:text-gold-soft"
                   }`}
                 >
                   {item.label}

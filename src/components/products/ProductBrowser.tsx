@@ -16,10 +16,18 @@ export function ProductBrowser({
 }) {
   return (
     <div>
-      <ProductFilterControls key={`${category}:${query}`} categories={categories} query={query} category={category} />
-      <p className="mt-6 text-sm text-earth" role="status">
-        พบ {products.length} รายการ
-      </p>
+      <div className="surface-card rounded-[2rem] p-4 sm:p-5">
+        <ProductFilterControls key={`${category}:${query}`} categories={categories} query={query} category={category} />
+      </div>
+      <div className="mt-10 flex items-end justify-between gap-4 border-b border-earth/20 pb-4">
+        <div>
+          <p className="eyebrow">คัดสรรจากสุรินทร์</p>
+          <p className="mt-1 font-serif-th text-2xl text-forest">สินค้าที่พร้อมสั่งซื้อ</p>
+        </div>
+        <p className="text-sm text-earth" role="status">
+          {products.length} รายการ
+        </p>
+      </div>
       {products.length === 0 ? (
         <div className="mt-6 rounded-3xl border border-dashed border-earth/40 p-10 text-center">
           <p className="font-serif-th text-xl text-forest">ไม่พบสินค้าที่ตรงกับคำค้นหา</p>

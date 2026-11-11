@@ -114,7 +114,7 @@ export function Origin() {
     <section className="overflow-hidden bg-ivory-deep py-20 lg:py-28">
       <div className={`${wrap} grid items-center gap-12 lg:grid-cols-2 lg:gap-20`}>
         <Reveal>
-          <p className="text-earth">ที่มาของข้าว</p>
+          <p className="eyebrow">ที่มาของข้าว</p>
           <h2 className="font-serif-th mt-2 text-3xl text-forest sm:text-4xl">ถิ่นปลูกตามแนวชายแดน</h2>
           <p className="mt-5 max-w-lg text-lg text-ink/85">
             แหล่งข้อมูลระบุว่าปะกาอำปึลเป็นข้าวเจ้าพื้นเมืองสุรินทร์ และมีถิ่นปลูกตามแนวชายแดนไทย–กัมพูชา ส่วนแปลงปลูกของสินค้าแต่ละล็อตยังรอยืนยัน
@@ -145,9 +145,10 @@ export function QualityTeaser() {
     <section className="bg-forest-deep py-20 text-ivory lg:py-28">
       <div className={`${wrap} grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20`}>
         <Reveal>
-          <h2 className="font-serif-th text-3xl sm:text-4xl">คุณภาพและกระบวนการ</h2>
-          <p className="mt-4 max-w-md text-ivory/80">
-            เราแสดงเฉพาะกระบวนการที่เจ้าของแบรนด์ยืนยันแล้ว ขั้นตอนที่ยังไม่ยืนยันจะมีป้ายกำกับชัดเจน
+          <p className="eyebrow text-gold-soft">ความใส่ใจจากต้นทาง</p>
+          <h2 className="font-serif-th mt-3 text-3xl sm:text-4xl">คุณภาพและกระบวนการ</h2>
+          <p className="mt-4 max-w-md text-ivory/75">
+            ข้าวใหม่จากชาวนาปลูกเองในจังหวัดสุรินทร์ ผ่านการสีแบบซ้อมมือ และแสดงรายละเอียดที่ยืนยันแล้วอย่างตรงไปตรงมา
           </p>
           <div className="mt-8">
             <ButtonLink href="/quality" variant="ghostLight">
@@ -156,14 +157,19 @@ export function QualityTeaser() {
           </div>
         </Reveal>
         <ol className="divide-y divide-ivory/15 border-y border-ivory/15">
-          {steps.map((s, i) => (
-            <li key={s} className="flex items-center justify-between gap-4 py-5">
-              <span className="font-serif-th text-lg">
-                {i + 1}. {s}
-              </span>
-              <Pending dark>รอข้อมูล</Pending>
-            </li>
-          ))}
+          {steps.map((s, i) => {
+            const confirmed = i === 0 || i === 1 || i === 3 || i === 4;
+            return (
+              <li key={s} className="flex items-center justify-between gap-4 py-5">
+                <span className="font-serif-th text-lg">
+                  {i + 1}. {s}
+                </span>
+                <span className={`shrink-0 rounded-full px-3 py-1 text-xs ${confirmed ? "bg-gold/15 text-gold-soft" : "bg-ivory/10 text-ivory/55"}`}>
+                  {confirmed ? "มีข้อมูลแล้ว" : "สอบถามร้าน"}
+                </span>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </section>

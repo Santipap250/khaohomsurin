@@ -60,7 +60,8 @@ export function Hero() {
           <motion.div variants={item} className="mb-5 hidden lg:block">
             <Logo size={84} />
           </motion.div>
-          <motion.p variants={item} className="text-gold-soft">
+          <motion.p variants={item} className="eyebrow text-gold-soft">
+            <span className="gold-rule mr-3 bg-gold" aria-hidden />
             {site.name} · {site.nameEn}
           </motion.p>
           <motion.h1 variants={item} className="font-serif-th mt-4 text-[2.1rem] sm:text-5xl lg:text-6xl">
@@ -69,9 +70,13 @@ export function Hero() {
               ข้าวดอกมะขาม พื้นเมืองสุรินทร์
             </span>
           </motion.h1>
-          <motion.p variants={item} className="mt-5 max-w-md text-ivory/80">
+          <motion.p variants={item} className="mt-5 max-w-md text-base leading-8 text-ivory/75 sm:text-lg">
             ข้าวใหม่ปีนี้ออกแล้ว ข้าวเจ้าซ้อมมือพื้นถิ่นสุรินทร์ พร้อมแพ็ก 1–3 กก. และโปรโมชั่นส่งฟรีเมื่อสั่ง 3 กก.
           </motion.p>
+          <motion.div variants={item} className="mt-6 flex flex-wrap gap-2 text-xs font-semibold tracking-wide text-ivory/75">
+            <span className="rounded-full border border-gold/35 bg-gold/10 px-3 py-1.5 text-gold-soft">ชาวนาปลูกเอง</span>
+            <span className="rounded-full border border-ivory/20 bg-ivory/5 px-3 py-1.5">เก็บเงินปลายทางไม่บวกเพิ่ม</span>
+          </motion.div>
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/products">เลือกชมสินค้า</ButtonLink>
             <ButtonLink href="/cart" variant="ghostLight">
