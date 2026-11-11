@@ -38,7 +38,7 @@ export function AddToCart({ product, withQuantity = false }: { product: Product;
                   onChange={() => setVariantId(v.id)}
                 />
                 <span className="inline-flex min-h-11 items-center rounded-full border border-earth/40 px-4 text-sm peer-checked:border-forest peer-checked:bg-forest peer-checked:text-ivory peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-gold">
-                  {v.weightLabel ?? v.label} · {priceLabel(v.price)}
+                  {v.weightLabel ?? v.label} · {priceLabel(v.price)} · {v.shippingFee === 0 ? "ส่งฟรี" : v.shippingFee === null ? "ค่าส่งรอยืนยัน" : `ส่ง ${v.shippingFee} บ.`}
                 </span>
               </label>
             ))}
@@ -57,6 +57,7 @@ export function AddToCart({ product, withQuantity = false }: { product: Product;
           </Link>
         )}
       </div>
+      <p className="text-sm text-earth">โปรโมชั่น: เก็บเงินปลายทางไม่บวกเพิ่ม · แนะนำแพ็ก 3 กก. คุ้มที่สุด ส่งฟรี</p>
       <p className="sr-only" role="status">
         {added ? `เพิ่ม ${product.name} จำนวน ${qty} ลงตะกร้าแล้ว` : ""}
       </p>

@@ -30,7 +30,7 @@ export function Intro() {
             ข้าวที่นำเสนอคือข้าวซ้อมมือปะกาอำปึล หรือข้าวดอกมะขาม ซึ่งกรมการข้าวและแหล่งอ้างอิงระบุว่าเป็นข้าวเจ้าพื้นเมืองสุรินทร์
           </p>
           <p className="mt-4 max-w-xl text-ink/80">
-            “{site.name}” คือชื่อเว็บไซต์ ส่วนฉลากอ้างอิงเดิมใช้ชื่อ “{site.labelBrand}” รายละเอียดแปลงปลูกของล็อตนี้ ราคาและขนาดบรรจุยังรอยืนยัน
+            “{site.name}” คือชื่อเว็บไซต์ ส่วนฉลากอ้างอิงเดิมใช้ชื่อ “{site.labelBrand}” ข้าวใหม่ปีนี้มีแพ็ก 1, 2 และ 3 กก. พร้อมราคาและค่าส่งตามที่แสดงในหน้าสินค้า
           </p>
         </Reveal>
       </div>
@@ -67,7 +67,7 @@ export function Featured() {
             <dt className="text-ivory/60">ขนาดบรรจุ</dt>
             <dd>{v.weightLabel ?? <Pending dark>รอกำหนดขนาด</Pending>}</dd>
             <dt className="text-ivory/60">ราคา</dt>
-            <dd>{v.price === null ? <Pending dark>รอกำหนดราคา</Pending> : priceLabel(v.price)}</dd>
+            <dd>{v.price === null ? <Pending dark>รอกำหนดราคา</Pending> : priceLabel(v.price)} · ค่าส่ง {v.shippingFee === 0 ? "ฟรี" : `${v.shippingFee} บ.`}</dd>
           </dl>
           <div className="mt-8 rounded-3xl bg-ivory p-5 text-ink">
             <AddToCart product={p} withQuantity />
@@ -288,7 +288,7 @@ export function FinalCta() {
 }
 
 export function FactStrip() {
-  const facts = [`เว็บไซต์: ${site.name}`, "สินค้า: ข้าวซ้อมมือปะกาอำปึล (ข้าวดอกมะขาม)", `ฉลากอ้างอิง: ${site.labelBrand}; แปลงปลูกล็อตนี้ ราคาและขนาด: รอยืนยัน`];
+  const facts = [`เว็บไซต์: ${site.name}`, "สินค้า: ข้าวซ้อมมือปะกาอำปึล (ข้าวดอกมะขาม)", "แพ็ก 1 กก. 99 บาท + ส่ง 20 บาท · 2 กก. 178 บาท + ส่ง 25 บาท · 3 กก. 270 บาท ส่งฟรี · เก็บเงินปลายทางไม่บวกเพิ่ม", `ฉลากอ้างอิง: ${site.labelBrand}`];
   return (
     <div className="border-y border-gold/30 bg-ivory-deep">
       <ul className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-2 px-4 py-4 text-sm text-forest sm:px-6">
