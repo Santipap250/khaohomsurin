@@ -6,14 +6,14 @@ import { buttonClass } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "ติดต่อและสั่งซื้อ",
-  description: "ข้อมูลติดต่อและรายละเอียดการเตรียมคำขอสั่งซื้อข้าวซ้อมมือปะกาอำปึล พร้อมช่องทาง LINE โทรศัพท์ และอีเมลของร้าน",
+  description: "ข้อมูลติดต่อและรายละเอียดการเตรียมคำขอสั่งซื้อข้าวซ้อมมือปะกาอำปึล พร้อมช่องทาง LINE โทรศัพท์ อีเมล และเพจ Facebook ของร้าน",
   alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   return (
     <>
-      <PageHead title="ติดต่อและสั่งซื้อ" intro="ติดต่อร้านผ่าน LINE โทรศัพท์ หรืออีเมล แล้วเตรียมและส่งข้อความสั่งซื้อด้วยตนเอง" crumbs={[{ label: "ติดต่อ" }]} />
+      <PageHead title="ติดต่อและสั่งซื้อ" intro="ติดต่อร้านผ่าน LINE โทรศัพท์ อีเมล หรือเพจ Facebook แล้วเตรียมและส่งข้อความสั่งซื้อด้วยตนเอง" crumbs={[{ label: "ติดต่อ" }]} />
       <section className="mx-auto grid max-w-7xl gap-12 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="rounded-3xl bg-white/70 p-6 ring-1 ring-earth/15 sm:p-8">
           <ContactRows />

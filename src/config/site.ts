@@ -36,7 +36,7 @@ export const site = {
     phone: { number: "0854655139", verified: true },
     /** LINE ID: bom_is_happiness, represented as a personal LINE profile URL. */
     lineUrl: "https://line.me/ti/p/~bom_is_happiness",
-    facebookUrl: null as string | null,
+    facebookUrl: "https://www.facebook.com/profile.php?id=100088032757338",
     email: "Bom-tan@hotmail.com",
     address: null as string | null,
     mapUrl: null as string | null,

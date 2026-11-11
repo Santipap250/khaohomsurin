@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHead } from "@/components/layout/PageHead";
+import { ExternalLink } from "@/components/ui/ExternalLink";
 import { site } from "@/config/site";
 import { isLineUrl } from "@/lib/format";
 
@@ -59,6 +60,13 @@ export default function OrderProcessPage() {
             <p className="mt-2 text-gold-soft">LINE: bom_is_happiness</p>
             <p className="mt-1">โทรศัพท์: {site.contact.phone.number}</p>
             <p className="mt-1 break-all">อีเมล: {site.contact.email}</p>
+            {site.contact.facebookUrl && (
+              <p className="mt-1">
+                <ExternalLink href={site.contact.facebookUrl} className="text-gold-soft underline underline-offset-4">
+                  เปิดเพจ Facebook
+                </ExternalLink>
+              </p>
+            )}
           </div>
         </aside>
       </section>
