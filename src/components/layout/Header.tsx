@@ -33,7 +33,8 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gold/20 bg-forest-deep/95 text-ivory backdrop-blur">
+    <>
+      <header className="sticky top-0 z-50 border-b border-gold/20 bg-forest-deep/95 text-ivory backdrop-blur">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:rounded focus:bg-gold focus:px-4 focus:py-2 focus:text-forest-deep"
@@ -94,10 +95,11 @@ export function Header() {
         </div>
       </div>
 
+      </header>
       <div
         id="mobile-menu"
         hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-16 overflow-y-auto bg-forest-deep px-6 py-8 lg:hidden"
+        className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-forest-deep px-6 py-8 lg:hidden"
       >
         <nav aria-label="เมนูมือถือ">
           <p className="mb-4 px-4 text-sm tracking-wide text-gold-soft">เมนูเว็บไซต์</p>
@@ -120,6 +122,6 @@ export function Header() {
           </ul>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
