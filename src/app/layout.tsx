@@ -8,7 +8,7 @@ import { site } from "@/config/site";
 import "./globals.css";
 
 export const viewport: Viewport = { themeColor: "#163d2c", width: "device-width", initialScale: 1 };
-const socialImageUrl = `${site.url}/images/social/khaohomsurin-og-1200x630.jpg`;
+const socialImageUrl = `${site.url}/images/social/khaohomsurin-facebook-square.jpg`;
 const socialImageAlt = "KHAO HOM SURIN — ข้าวหอมสุรินทร์ ภายใต้ฉลากบุญยังข้าวหอม";
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: "ข้าวหอมสุรินทร์ | KHAO HOM SURIN",
     description: "ทำความรู้จักข้าวซ้อมมือปะกาอำปึล (ข้าวดอกมะขาม) และเรื่องราวของบุญยังข้าวหอมจากเว็บไซต์ KHAO HOM SURIN",
-    images: [{ url: socialImageUrl, width: 1200, height: 630, type: "image/jpeg", alt: socialImageAlt }],
+    images: [{ url: socialImageUrl, width: 1920, height: 1920, type: "image/jpeg", alt: socialImageAlt }],
   },
   twitter: {
     card: "summary_large_image",
