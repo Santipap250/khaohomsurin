@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { HeroVideo } from "@/components/ui/HeroVideo";
+import { InstallApp } from "@/components/ui/InstallApp";
 import { Logo } from "@/components/ui/Logo";
 import { site } from "@/config/site";
 
@@ -76,6 +77,9 @@ export function Hero() {
             <ButtonLink href="/cart" variant="ghostLight">
               ไปที่ตะกร้า
             </ButtonLink>
+          </motion.div>
+          <motion.div variants={item}>
+            <InstallApp />
           </motion.div>
         </motion.div>
       </div>
