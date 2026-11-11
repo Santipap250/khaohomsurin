@@ -17,17 +17,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
+    url: site.url,
     locale: site.locale,
     siteName: site.name,
     title: `${site.name} ${site.nameEn}`,
     description: site.description,
-    images: [{ url: "/images/products/boonyang-rice-pack.jpg", width: 768, height: 1376, alt: "ภาพแพ็กอ้างอิงข้าวซ้อมมือปะกาอำปึล; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน" }],
+    images: [{ url: "/images/social/khaohomsurin-facebook-og.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "KHAO HOM SURIN — ข้าวหอมสุรินทร์ ภายใต้ฉลากบุญยังข้าวหอม" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} ${site.nameEn}`,
     description: site.description,
-    images: [{ url: "/images/products/boonyang-rice-pack.jpg", alt: "ภาพแพ็กอ้างอิงข้าวซ้อมมือปะกาอำปึล; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน" }],
+    images: [{ url: "/images/social/khaohomsurin-facebook-og.jpg", alt: "KHAO HOM SURIN — ข้าวหอมสุรินทร์ ภายใต้ฉลากบุญยังข้าวหอม" }],
   },
 };
 
