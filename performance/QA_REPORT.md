@@ -34,6 +34,10 @@ The following flow passed on the local production build at 390px:
 
 No fake checkout, payment, automatic order receiver, or unverified LINE account was introduced.
 
+## Products filter regression check
+
+After the CLS refactor, the Products page was checked at 390px. The initial server-rendered result showed `พบ 1 รายการ`; submitting a search for a non-matching term updated the URL with `q=` and showed `พบ 0 รายการ`; clearing the filter returned the result set through the same URL-driven flow. No horizontal overflow was detected. Product cards remain server-rendered while the category/search controls remain interactive.
+
 ## Screenshots
 
 Baseline production screenshots are under [`screenshots/baseline-production`](./screenshots/baseline-production/). After-fix local production-build screenshots are under [`screenshots/after-local`](./screenshots/after-local/).
