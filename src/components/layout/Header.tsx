@@ -25,6 +25,12 @@ export function Header() {
   }, [open]);
 
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+  const mobileNav = [
+    ...nav,
+    { href: "/cart", label: "ตะกร้าสินค้า" },
+    { href: "/order-process", label: "ขั้นตอนการสั่งซื้อ" },
+    { href: "/privacy", label: "ประกาศความเป็นส่วนตัว" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-gold/20 bg-forest-deep/95 text-ivory backdrop-blur">
@@ -94,9 +100,11 @@ export function Header() {
         className="fixed inset-x-0 bottom-0 top-16 overflow-y-auto bg-forest-deep px-6 py-8 lg:hidden"
       >
         <nav aria-label="เมนูมือถือ">
+          <p className="mb-4 px-4 text-sm tracking-wide text-gold-soft">เมนูเว็บไซต์</p>
           <ul className="space-y-1">
-            {nav.map((item) => (
+            {mobileNav.map((item, index) => (
               <li key={item.href}>
+                {index === nav.length && <div className="mx-4 my-4 border-t border-ivory/15" aria-hidden="true" />}
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
