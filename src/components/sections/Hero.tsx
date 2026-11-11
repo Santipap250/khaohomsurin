@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import Image from "next/image";
-import { useRef } from "react";
 import { ButtonLink } from "@/components/ui/Button";
 import { HeroVideo } from "@/components/ui/HeroVideo";
 import { Logo } from "@/components/ui/Logo";
@@ -19,18 +18,14 @@ const grains = [
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.14, delayChildren: 0.15 } } };
 const item = {
-  hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const } },
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
-
   return (
-    <section ref={ref} className="relative isolate flex min-h-[calc(100svh-4rem)] flex-col overflow-hidden bg-forest-deep text-ivory lg:flex-row">
-      <motion.div style={{ y }} className="relative h-[56svh] shrink-0 lg:absolute lg:inset-0 lg:left-[36%] lg:h-auto lg:[mask-image:linear-gradient(to_right,transparent,#000_38%)]">
+    <section className="relative isolate flex min-h-[calc(100svh-4rem)] flex-col overflow-hidden bg-forest-deep text-ivory lg:flex-row">
+      <div className="relative h-[56svh] shrink-0 lg:absolute lg:inset-0 lg:left-[36%] lg:h-auto lg:[mask-image:linear-gradient(to_right,transparent,#000_38%)]">
         <Image
           src="/videos/hero-bg-poster.jpg"
           alt=""
@@ -44,7 +39,7 @@ export function Hero() {
           poster="/videos/hero-bg-poster.jpg"
           label="วิดีโอแพ็กข้าวบุญยังข้าวหอมวางซ้อนกันบนพื้นหินท่ามกลางรวงข้าวและแสงอุ่น กล้องเคลื่อนช้า ๆ"
         />
-      </motion.div>
+      </div>
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[56svh] bg-gradient-to-t from-forest-deep via-transparent to-transparent lg:inset-0 lg:h-auto lg:bg-gradient-to-r lg:from-forest-deep/70 lg:via-transparent lg:to-transparent"
