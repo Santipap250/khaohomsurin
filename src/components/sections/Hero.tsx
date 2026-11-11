@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import { useRef } from "react";
 import { ButtonLink } from "@/components/ui/Button";
+import { HeroVideo } from "@/components/ui/HeroVideo";
 import { Logo } from "@/components/ui/Logo";
 import { site } from "@/config/site";
 
@@ -31,17 +32,22 @@ export function Hero() {
     <section ref={ref} className="relative isolate flex min-h-[calc(100svh-4rem)] flex-col overflow-hidden bg-forest-deep text-ivory lg:flex-row">
       <motion.div style={{ y }} className="relative h-[56svh] shrink-0 lg:absolute lg:inset-0 lg:left-[36%] lg:h-auto lg:[mask-image:linear-gradient(to_right,transparent,#000_38%)]">
         <Image
-          src="/images/products/boonyang-rice-pack.jpg"
-          alt="ภาพแพ็กอ้างอิงภายใต้ฉลากบุญยังข้าวหอม; artwork และข้อมูลติดต่อบนสติกเกอร์ยังรอยืนยัน"
+          src="/videos/hero-bg-poster.jpg"
+          alt=""
           fill
           priority
           sizes="(min-width: 1024px) 60vw, 100vw"
           className="object-cover object-[50%_55%]"
         />
+        <HeroVideo
+          src="/videos/hero-bg.mp4"
+          poster="/videos/hero-bg-poster.jpg"
+          label="วิดีโอแพ็กข้าวบุญยังข้าวหอมวางซ้อนกันบนพื้นหินท่ามกลางรวงข้าวและแสงอุ่น กล้องเคลื่อนช้า ๆ"
+        />
       </motion.div>
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-[56svh] bg-gradient-to-t from-forest-deep via-transparent to-transparent lg:inset-0 lg:h-auto lg:bg-gradient-to-r lg:from-forest-deep/70 lg:via-transparent lg:to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[56svh] bg-gradient-to-t from-forest-deep via-transparent to-transparent lg:inset-0 lg:h-auto lg:bg-gradient-to-r lg:from-forest-deep/70 lg:via-transparent lg:to-transparent"
       />
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden overflow-hidden md:block">
         {grains.map((g, i) => (
