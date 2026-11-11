@@ -75,11 +75,11 @@ export default async function ProductPage({ params }: Props) {
 
           <p className="mt-6 flex flex-wrap items-baseline gap-3">
             <span className="text-sm text-earth">ราคา</span>
-            {v.price === null ? <Pending>รอกำหนดราคา</Pending> : <span className="font-serif-th text-3xl text-forest">{priceLabel(v.price)}</span>}
+            {v.price === null ? <Pending>รอกำหนดราคา</Pending> : <span className="font-serif-th text-3xl text-forest">เริ่มต้น {priceLabel(v.price)}</span>}
           </p>
           <p className="mt-1 flex flex-wrap items-center gap-3">
             <span className="text-sm text-earth">ขนาดบรรจุ</span>
-            {v.weightLabel ?? <Pending>รอกำหนดขนาด</Pending>}
+            {p.variants.map((variant) => variant.weightLabel).filter(Boolean).join(" · ") || <Pending>รอกำหนดขนาด</Pending>}
           </p>
 
           <div className="mt-8 rounded-3xl bg-white/70 p-5 ring-1 ring-earth/15">

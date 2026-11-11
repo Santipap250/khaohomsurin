@@ -5,7 +5,7 @@ import { categories, products } from "@/data/products";
 
 export const metadata: Metadata = {
   title: "สินค้า",
-  description: "ดูข้าวซ้อมมือปะกาอำปึล หรือข้าวดอกมะขาม ข้าวเจ้าพื้นเมืองสุรินทร์ พร้อมข้อมูลสินค้าและสถานะรายละเอียดที่รอยืนยัน",
+  description: "ดูข้าวซ้อมมือปะกาอำปึล หรือข้าวดอกมะขาม ข้าวเจ้าพื้นถิ่นสุรินทร์ ข้าวใหม่ปีนี้ พร้อมแพ็ก 1, 2 และ 3 กก. และราคาสำหรับสั่งซื้อ",
   alternates: { canonical: "/products" },
 };
 
@@ -24,7 +24,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
   const category = typeof params.category === "string" && categories.includes(params.category) ? params.category : "ทั้งหมด";
   return (
     <>
-      <PageHead title="สินค้า" intro="สินค้าปัจจุบันคือข้าวซ้อมมือปะกาอำปึล (ข้าวดอกมะขาม); ราคา ขนาดบรรจุ และพื้นที่ปลูกของล็อตนี้จะแสดงเมื่อยืนยัน" crumbs={[{ label: "สินค้า" }]} />
+      <PageHead title="สินค้า" intro="ข้าวใหม่ปีนี้: ข้าวซ้อมมือปะกาอำปึล (ข้าวดอกมะขาม) จากจังหวัดสุรินทร์ มีแพ็ก 1, 2 และ 3 กก. พร้อมราคาและค่าส่ง" crumbs={[{ label: "สินค้า" }]} />
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
         <ProductBrowser products={filterProducts(query, category)} categories={categories} query={query} category={category} />
       </section>

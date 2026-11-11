@@ -3,7 +3,7 @@ import type { Product } from "@/types";
 /**
  * PRODUCT DATA — the single place to add or edit products.
  * --------------------------------------------------------------------
- * - `price: null` and `weightLabel: null` mean "not confirmed yet" and are shown as such.
+ * - `price: null`, `weightLabel: null`, and `shippingFee: null` mean "not confirmed yet".
  * - To add a size: add an entry to `variants` (id must be unique within the product).
  * - To add a product: copy the object below, change `slug`, texts and images.
  * - Put new photos in public/images/products/ and reference them as "/images/products/<file>".
@@ -17,9 +17,9 @@ export const products: Product[] = [
     nameEn: "Paka Ampul Hand-Milled Rice — Surin",
     category: "ข้าวซ้อมมือ",
     summary:
-      "ข้าวซ้อมมือจากข้าวปะกาอำปึล หรือข้าวดอกมะขาม ข้าวเจ้าพื้นเมืองสุรินทร์; รายละเอียดแปลงปลูกและข้อมูลจำหน่ายของล็อตนี้ยังรอยืนยัน",
+      "ข้าวใหม่ปีนี้ออกแล้ว ข้าวซ้อมมือจากข้าวปะกาอำปึล หรือข้าวดอกมะขาม ข้าวเจ้าพื้นถิ่นจังหวัดสุรินทร์ ชาวนาปลูกเอง อิ่มเร็ว อิ่มนาน กากใยสูง มีวิตามินบีและไฟเบอร์สูง",
     description:
-      "สินค้านี้ระบุเป็นข้าวซ้อมมือจากข้าวปะกาอำปึล (ข้าวดอกมะขาม) ซึ่งเป็นข้าวเจ้าพื้นเมืองสุรินทร์ตามข้อมูลกรมการข้าวและแหล่งอ้างอิงที่ระบุไว้ในหน้าเรื่องราว คำว่า “ข้าวซ้อมมือ” บอกลักษณะการสีที่ขัดเพียงเล็กน้อย ไม่ใช่ชื่อพันธุ์ พื้นที่เพาะปลูกของล็อตนี้ ปีเก็บเกี่ยว น้ำหนัก ราคา และมาตรฐานรับรองยังรอยืนยัน",
+      "ข้าวใหม่ปีนี้ออกแล้ว เป็นข้าวจ้าวซ้อมมือจากข้าวปะกาอำปึล หรือข้าวดอกมะขาม ข้าวพื้นถิ่นจังหวัดสุรินทร์ที่ชาวนาปลูกเอง; ข้าวซ้อมมือหมายถึงการสีที่ขัดเพียงเล็กน้อย และข้อมูลโภชนาการที่แสดงเป็นข้อมูลตามรายละเอียดจากเจ้าของสินค้า",
     images: [
       {
         src: "/images/products/boonyang-rice-pack.jpg",
@@ -30,14 +30,18 @@ export const products: Product[] = [
         note: "ภาพแพ็กอ้างอิงจากไฟล์ที่ได้รับมา; artwork และหมายเลขโทรศัพท์บนสติกเกอร์ยังไม่ยืนยันว่าเป็นโลโก้หรือช่องทางติดต่อปัจจุบัน",
       },
     ],
-    variants: [{ id: "standard", label: "แพ็กมาตรฐาน", weightLabel: null, price: null }],
+    variants: [
+      { id: "1kg", label: "แพ็ก 1 กก.", weightLabel: "1 กก.", price: 99, shippingFee: 20 },
+      { id: "2kg", label: "แพ็ก 2 กก.", weightLabel: "2 กก.", price: 178, shippingFee: 25 },
+      { id: "3kg", label: "แพ็ก 3 กก.", weightLabel: "3 กก.", price: 270, shippingFee: 0 },
+    ],
     details: [
       { label: "ชื่อพันธุ์/ชื่อเรียก", value: "ปะกาอำปึล (ปกาอำปึล/ผกาอำปึล; ข้าวดอกมะขาม)" },
       { label: "ชนิดข้าว", value: "ข้าวเจ้า" },
       { label: "ลักษณะการสี", value: "ข้าวซ้อมมือ — ขัดสีเพียงเล็กน้อย" },
-      { label: "พื้นที่ปลูกของสินค้าล็อตนี้", value: null },
-      { label: "น้ำหนักบรรจุ", value: null },
-      { label: "ปีที่เก็บเกี่ยว / วันที่บรรจุ", value: null },
+      { label: "พื้นที่ปลูก", value: "จังหวัดสุรินทร์; ชาวนาปลูกเอง" },
+      { label: "น้ำหนักบรรจุ", value: "1 กก., 2 กก. หรือ 3 กก." },
+      { label: "ปีที่เก็บเกี่ยว / วันที่บรรจุ", value: "ข้าวใหม่ ปีนี้ออกแล้ว" },
       { label: "มาตรฐานหรือการรับรอง", value: null },
     ],
     storage: null,

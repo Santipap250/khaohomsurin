@@ -69,7 +69,7 @@ export function Hero() {
             </span>
           </motion.h1>
           <motion.p variants={item} className="mt-5 max-w-md text-ivory/80">
-            ข้าวเจ้าพื้นเมืองที่รู้จักในชื่อปะกาอำปึล; รายละเอียดแปลงปลูกของล็อตนี้ ราคาและขนาดบรรจุยังรอยืนยัน
+            ข้าวใหม่ปีนี้ออกแล้ว ข้าวเจ้าซ้อมมือพื้นถิ่นสุรินทร์ พร้อมแพ็ก 1–3 กก. และโปรโมชั่นส่งฟรีเมื่อสั่ง 3 กก.
           </motion.p>
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/products">เลือกชมสินค้า</ButtonLink>

@@ -18,6 +18,8 @@ export type Variant = {
   weightLabel: string | null;
   /** Price in THB — null while the owner has not confirmed it */
   price: number | null;
+  /** Shipping fee in THB for this pack; 0 means free shipping */
+  shippingFee: number | null;
 };
 
 export type ProductDetail = { label: string; value: string | null };

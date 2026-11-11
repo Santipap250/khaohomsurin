@@ -82,7 +82,7 @@ export function CartView() {
                   {l.name}
                 </Link>
                 <p className="text-sm text-earth">{l.weightLabel ?? l.variantLabel}</p>
-                <p className="mt-1 text-sm">{l.unitPrice === null ? <Pending>รอกำหนดราคา</Pending> : priceLabel(l.unitPrice)}</p>
+                <p className="mt-1 text-sm">{l.unitPrice === null ? <Pending>รอกำหนดราคา</Pending> : priceLabel(l.unitPrice)}{l.shippingFee === 0 ? " · ส่งฟรี" : l.shippingFee !== null ? ` · ค่าส่ง ${formatPrice(l.shippingFee)}` : ""}</p>
               </div>
               <div className="flex items-center gap-2">
                 <QuantitySelector
@@ -120,6 +120,14 @@ export function CartView() {
           <span className="font-serif-th text-2xl">
             {t.allUnpriced ? "ขอสอบถามราคา" : formatPrice(t.sum)}
           </span>
+        </p>
+        <p className="mt-2 flex items-baseline justify-between gap-4 text-sm text-ivory/80">
+          <span>ค่าส่ง</span>
+          <span>{t.shipping === null ? "ขอสอบถามร้าน" : t.shipping === 0 ? "ฟรี" : formatPrice(t.shipping)}</span>
+        </p>
+        <p className="mt-2 flex items-baseline justify-between gap-4 border-t border-ivory/20 pt-3">
+          <span>ยอดรวมสุทธิ</span>
+          <span className="font-serif-th text-2xl">{t.grandTotal === null ? "ขอสอบถามร้าน" : formatPrice(t.grandTotal)}</span>
         </p>
         {!t.allUnpriced && t.hasUnpriced && (
           <p className="mt-1 text-sm text-ivory/70">ยอดนี้ยังไม่รวมรายการที่รอกำหนดราคา</p>
@@ -178,8 +186,8 @@ export function CartView() {
           rows={10}
           className="mt-2 w-full rounded-2xl bg-ivory p-4 text-sm text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         />
-        <p className="mt-4 text-xs leading-relaxed text-ivory/70">
-          นี่คือการส่งคำขอสั่งซื้อ ไม่ใช่การชำระเงิน และยังไม่มีการบันทึกคำสั่งซื้อในระบบ ร้านจะยืนยันยอดและวิธีชำระเงินในแชต
+          <p className="mt-4 text-xs leading-relaxed text-ivory/70">
+          โปรโมชั่น: เก็บเงินปลายทางไม่บวกเพิ่ม · นี่คือการส่งคำขอสั่งซื้อ ไม่ใช่การชำระเงิน และยังไม่มีการบันทึกคำสั่งซื้อในระบบ ร้านจะยืนยันยอดและวิธีชำระเงินในแชต
         </p>
       </section>
     </div>
