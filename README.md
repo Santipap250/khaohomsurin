@@ -36,7 +36,7 @@ npm start
 
 ## Brand Configuration — `src/config/site.ts`
 ชื่อ ฉลาก คำโปรย โดเมน และช่องทางติดต่อทั้งหมดอยู่ที่ไฟล์เดียว ค่าที่เป็น `null` จะแสดง “รอการตั้งค่า” และ **ไม่สร้างลิงก์**
-เบอร์ติดต่อและช่องทาง LINE ปัจจุบันยังรอเจ้าของแบรนด์ยืนยัน ระบบจึงไม่แสดงเบอร์หรือลิงก์โทรศัพท์ เบอร์ที่เห็นในภาพฉลากเป็นเพียงข้อมูลพิมพ์ในภาพ ไม่ใช่ช่องทางติดต่อที่ยืนยันแล้ว
+ช่องทางติดต่อที่ยืนยันแล้วในปัจจุบันคือโทรศัพท์ `0854655139`, LINE `bom_is_happiness`, อีเมล `Bom-tan@hotmail.com` และเพจ Facebook ที่ตั้งไว้ใน config; หมายเลขที่เห็นในภาพฉลากเดิมยังไม่ใช้เป็นช่องทางติดต่อ
 
 ## Product Configuration — `src/data/products.ts`
 เพิ่ม/แก้สินค้า ขนาด (`variants`) ราคา (`price`) และรูป ที่ไฟล์นี้ไฟล์เดียว `null` = ยังไม่ยืนยัน แสดงป้าย “รอข้อมูล” รีวิวลูกค้าอยู่ที่ `src/data/reviews.ts` (เว้นว่างจนกว่าจะมีรีวิวจริงที่ได้รับอนุญาต) คำถามที่พบบ่อยอยู่ที่ `src/data/faq.ts`
@@ -73,12 +73,12 @@ git push -u origin main
 1. สร้าง Repository บน GitHub แล้ว push โปรเจกต์
 2. เปิด vercel.com → Add New → Project → Import Git Repository
 3. Root Directory: `./` · Framework: Next.js (ตรวจพบอัตโนมัติ) · Build Command: `npm run build`
-4. ใส่ Environment Variables (`NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_LINE_URL`) ถ้ามี
+4. ใส่ Environment Variables (`NEXT_PUBLIC_SITE_URL` และ `NEXT_PUBLIC_LINE_URL` หากต้องการ override ค่า LINE ใน config) แล้ว Deploy
 5. กด Deploy แล้วเปิด Production URL ทดสอบทุกหน้า
 6. ตั้งโดเมนจริงที่ Settings → Domains แล้วอัปเดต `NEXT_PUBLIC_SITE_URL` จากนั้น Redeploy
 
 ## Troubleshooting
-- ปุ่ม LINE ไม่เปิด: ยังไม่ได้ตั้ง `NEXT_PUBLIC_LINE_URL` หรือรูปแบบลิงก์ไม่ถูกต้อง (ระบบจะแสดงคำเตือนและยังคัดลอกข้อความให้)
-- canonical เป็น localhost: ยังไม่ได้ตั้ง `NEXT_PUBLIC_SITE_URL`
+- ปุ่ม LINE ไม่เปิด: ตรวจว่า `NEXT_PUBLIC_LINE_URL` เป็น URL `https://line.me/` หรือ `https://lin.ee/`; หากไม่ตั้งค่า ระบบจะใช้ LINE profile ที่ยืนยันใน `src/config/site.ts`
+- canonical ใช้ fallback Vercel: ตั้ง `NEXT_PUBLIC_SITE_URL` เป็นโดเมนจริงก่อน redeploy เพื่อให้ canonical, sitemap และ OG ใช้โดเมนถาวร
 - เปลี่ยนค่า env แล้วไม่เปลี่ยน: ค่า `NEXT_PUBLIC_*` ฝังตอน build ต้อง Redeploy
 - ตะกร้าหาย: ผู้ใช้ล้างข้อมูลเบราว์เซอร์หรือเปลี่ยนเครื่อง

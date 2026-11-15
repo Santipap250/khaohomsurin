@@ -10,8 +10,9 @@ const fromEnv = (value: string | undefined): string | null => {
   const v = value?.trim();
   return v ? v : null;
 };
-
 const vercelHost = fromEnv(process.env.VERCEL_PROJECT_PRODUCTION_URL);
+const fallbackSiteUrl = "https://khaohomsurin.vercel.app";
+const configuredLineUrl = fromEnv(process.env.NEXT_PUBLIC_LINE_URL);
 
 export const site = {
   /** Website brand */
@@ -28,14 +29,14 @@ export const site = {
   /** Domain: set NEXT_PUBLIC_SITE_URL in Vercel when the real domain is ready. */
   url: (
     fromEnv(process.env.NEXT_PUBLIC_SITE_URL) ??
-    (vercelHost ? `https://${vercelHost}` : "http://localhost:3000")
+    (vercelHost ? `https://${vercelHost}` : fallbackSiteUrl)
   ).replace(/\/$/, ""),
 
   contact: {
     /** Contact details provided by the owner for the current ordering channel. */
     phone: { number: "0854655139", verified: true },
     /** LINE ID: bom_is_happiness, represented as a personal LINE profile URL. */
-    lineUrl: "https://line.me/ti/p/~bom_is_happiness",
+    lineUrl: configuredLineUrl ?? "https://line.me/ti/p/~bom_is_happiness",
     facebookUrl: "https://www.facebook.com/profile.php?id=100088032757338",
     email: "Bom-tan@hotmail.com",
     address: null as string | null,

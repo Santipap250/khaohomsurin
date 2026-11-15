@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/Button";
+
+export const metadata: Metadata = {
+  title: "ไม่พบหน้าที่ต้องการ",
+  description: "ไม่พบหน้าหรือสินค้าที่คุณกำลังค้นหา กลับไปดูข้อมูลสินค้าและเรื่องราวของข้าวหอมสุรินทร์ได้จากหน้าแรก",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (
