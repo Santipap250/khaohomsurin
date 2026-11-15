@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   applicationName: site.name,
   appleWebApp: { capable: true, title: site.name, statusBarStyle: "black-translucent" },
   other: { "apple-mobile-web-app-capable": "yes" },
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: site.url,

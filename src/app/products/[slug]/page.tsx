@@ -22,12 +22,39 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const p = getProduct(slug);
-  if (!p) return {};
+  if (!p) {
+    return {
+      title: "ไม่พบสินค้านี้",
+      description: "ไม่พบสินค้าที่คุณกำลังค้นหา กลับไปดูรายการสินค้าและข้อมูลข้าวหอมสุรินทร์ได้จากหน้าเลือกสินค้า",
+      robots: { index: false, follow: true },
+    };
+  }
+  const canonical = `${site.url}/products/${p.slug}`;
+  const image = {
+    url: `${site.url}${p.images[0].src}`,
+    width: p.images[0].width,
+    height: p.images[0].height,
+    alt: p.images[0].alt,
+  };
   return {
     title: p.name,
     description: p.summary,
     alternates: { canonical: `/products/${p.slug}` },
-    openGraph: { title: p.name, description: p.summary, images: [{ url: p.images[0].src, width: p.images[0].width, height: p.images[0].height, alt: p.images[0].alt }] },
+    openGraph: {
+      type: "website",
+      url: canonical,
+      siteName: site.name,
+      locale: site.locale,
+      title: p.name,
+      description: p.summary,
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: p.name,
+      description: p.summary,
+      images: [image.url],
+    },
   };
 }
 
