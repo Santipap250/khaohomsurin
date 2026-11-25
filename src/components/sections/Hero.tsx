@@ -67,20 +67,22 @@ export function Hero() {
           <motion.h1 variants={item} className="font-serif-th mt-4 text-[2.1rem] sm:text-5xl lg:text-6xl">
             ข้าวซ้อมมือปะกาอำปึล
             <span className="mt-2 block text-[1.35rem] text-ivory/90 sm:text-3xl lg:text-4xl">
-              ข้าวดอกมะขาม พื้นเมืองสุรินทร์
+              ข้าวดอกมะขามจากสุรินทร์
             </span>
           </motion.h1>
           <motion.p variants={item} className="mt-5 max-w-md text-base leading-8 text-ivory/75 sm:text-lg">
-            ข้าวใหม่ปีนี้ออกแล้ว ข้าวเจ้าซ้อมมือพื้นถิ่นสุรินทร์ พร้อมแพ็ก 1–3 กก. และโปรโมชั่นส่งฟรีเมื่อสั่ง 3 กก.
+            ข้าวเจ้าพื้นถิ่นจังหวัดสุรินทร์ในรูปแบบข้าวซ้อมมือ พร้อมข้อมูลขนาด ราคา ค่าส่ง และช่องทางสั่งซื้อที่แสดงอย่างตรงไปตรงมา
           </motion.p>
           <motion.div variants={item} className="mt-6 flex flex-wrap gap-2 text-xs font-semibold tracking-wide text-ivory/75">
+            <span className="rounded-full border border-gold/35 bg-gold/10 px-3 py-1.5 text-gold-soft">ข้าวใหม่ปีนี้ออกแล้ว</span>
+            <span className="rounded-full border border-ivory/20 bg-ivory/5 px-3 py-1.5">แพ็ก 1–3 กก.</span>
             <span className="rounded-full border border-gold/35 bg-gold/10 px-3 py-1.5 text-gold-soft">ชาวนาปลูกเอง</span>
-            <span className="rounded-full border border-ivory/20 bg-ivory/5 px-3 py-1.5">เก็บเงินปลายทางไม่บวกเพิ่ม</span>
+            <span className="rounded-full border border-ivory/20 bg-ivory/5 px-3 py-1.5">สั่ง 3 กก. ส่งฟรี</span>
           </motion.div>
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/products">เลือกชมสินค้า</ButtonLink>
-            <ButtonLink href="/cart" variant="ghostLight">
-              ไปที่ตะกร้า
+            <ButtonLink href="/story" variant="ghostLight">
+              รู้จักข้าวปะกาอำปึล
             </ButtonLink>
           </motion.div>
           <motion.div variants={item}>
