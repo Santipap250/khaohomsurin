@@ -40,42 +40,55 @@ export function Intro() {
 
 export function Featured() {
   const p = products[0];
-  const v = p.variants[0];
   return (
     <section className="bg-forest py-20 text-ivory lg:py-28">
-      <div className={`${wrap} grid items-center gap-12 lg:grid-cols-2 lg:gap-20`}>
-        <Reveal className="relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-gold/40">
-            <Image
-              src={p.images[0].src}
-              alt={p.images[0].alt}
-              fill
-              sizes="(min-width: 1024px) 40rem, 100vw"
-              className="object-cover"
-              style={{ objectPosition: p.images[0].position }}
-            />
-          </div>
-          <div className="absolute -bottom-6 right-4 hidden w-40 overflow-hidden rounded-2xl ring-4 ring-forest sm:block">
-            <Image src="/images/brand/label-crop.jpg" alt="ภาพอ้างอิงฉลากเดิมบุญยังข้าวหอม; ข้อมูลติดต่อที่พิมพ์ยังไม่ยืนยัน" width={600} height={600} sizes="10rem" className="aspect-square object-cover" />
-          </div>
+      <div className={wrap}>
+        <Reveal>
+          <p className="eyebrow text-gold-soft">สินค้าแนะนำ</p>
+          <h2 className="font-serif-th mt-2 max-w-3xl text-3xl sm:text-4xl">เลือกขนาดที่เหมาะกับคุณ</h2>
+          <p className="mt-4 max-w-2xl text-ivory/75">
+            {p.name} มีขนาด 1, 2 และ 3 กก. แสดงราคาและค่าส่งตามข้อมูลที่เจ้าของแบรนด์ยืนยัน
+          </p>
         </Reveal>
-        <Reveal delay={0.1}>
-          <p className="text-gold-soft">สินค้าแนะนำ</p>
-          <h2 className="font-serif-th mt-2 text-3xl sm:text-4xl">{p.name}</h2>
-          <p className="mt-4 max-w-lg text-ivory/85">{p.description}</p>
-          <dl className="mt-6 grid max-w-md grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm">
-            <dt className="text-ivory/60">ขนาดบรรจุ</dt>
-            <dd>{v.weightLabel ?? <Pending dark>รอกำหนดขนาด</Pending>}</dd>
-            <dt className="text-ivory/60">ราคา</dt>
-            <dd>{v.price === null ? <Pending dark>รอกำหนดราคา</Pending> : priceLabel(v.price)} · ค่าส่ง {v.shippingFee === 0 ? "ฟรี" : `${v.shippingFee} บ.`}</dd>
-          </dl>
-          <div className="mt-8 rounded-3xl bg-ivory p-5 text-ink">
+
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {p.variants.map((variant, index) => (
+            <Reveal key={variant.id} delay={index * 0.06}>
+              <article className={`flex h-full flex-col rounded-3xl border p-6 ${variant.id === "3kg" ? "border-gold/70 bg-gold/10" : "border-ivory/15 bg-ivory/5"}`}>
+                <div className="flex items-center justify-between gap-3 text-sm">
+                  <span className="font-semibold tracking-wide text-gold-soft">{variant.id === "3kg" ? "คุ้มที่สุด" : index === 0 ? "เริ่มต้น" : "คุ้มขึ้น"}</span>
+                  <span className="rounded-full border border-ivory/20 px-3 py-1 text-ivory/75">{variant.weightLabel ?? <Pending dark>รอกำหนดขนาด</Pending>}</span>
+                </div>
+                <h3 className="font-serif-th mt-6 text-2xl">แพ็ก {variant.weightLabel ?? variant.label}</h3>
+                <p className="mt-3 min-h-12 text-sm leading-7 text-ivory/70">
+                  {variant.id === "3kg" ? "ส่งฟรี และเก็บเงินปลายทางไม่บวกเพิ่ม" : variant.id === "2kg" ? "ขนาดกลางสำหรับสั่งใช้ในบ้าน" : "เหมาะสำหรับเริ่มรู้จักข้าวซ้อมมือปะกาอำปึล"}
+                </p>
+                <p className="mt-6 font-serif-th text-4xl text-ivory">
+                  {variant.price === null ? <Pending dark>รอกำหนดราคา</Pending> : priceLabel(variant.price)}
+                  <span className="ml-2 font-sans text-sm text-ivory/70">บาท</span>
+                </p>
+                <p className="mt-1 text-sm text-gold-soft">{variant.shippingFee === 0 ? "ส่งฟรี" : variant.shippingFee === null ? "ค่าส่งรอยืนยัน" : `ค่าส่ง ${variant.shippingFee} บาท`}</p>
+                <Link href={`/products/${p.slug}`} className="mt-8 inline-flex min-h-11 items-center justify-center rounded-xl bg-ivory px-4 py-3 text-center text-sm font-semibold text-forest transition hover:bg-gold-soft">
+                  ดูรายละเอียดแพ็กนี้
+                </Link>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.18} className="mt-8 rounded-3xl bg-ivory p-5 text-ink sm:p-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <h3 className="font-serif-th text-xl text-forest">พร้อมเลือกขนาดแล้ว?</h3>
+              <p className="mt-1 text-sm text-earth">เลือกแพ็กและจำนวนที่ต้องการ แล้วเพิ่มลงตะกร้าได้จากตรงนี้</p>
+            </div>
             <AddToCart product={p} withQuantity />
           </div>
-          <Link href={`/products/${p.slug}`} className="mt-5 inline-block text-gold-soft underline underline-offset-4">
-            ดูรายละเอียดสินค้า
-          </Link>
         </Reveal>
+
+        <p className="mt-5 text-sm leading-6 text-ivory/55">
+          ราคาตามข้อมูลปัจจุบันของร้าน ควรตรวจสอบยอดรวมและรอบจัดส่งกับร้านก่อนยืนยันคำสั่งซื้อ
+        </p>
       </div>
     </section>
   );
